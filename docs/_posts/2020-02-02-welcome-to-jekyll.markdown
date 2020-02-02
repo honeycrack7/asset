@@ -5,6 +5,7 @@ date:   2020-02-02 01:03:05 +0900
 categories: jekyll update
 ---
 [±2σ](https://honeycrack7.github.io/asset/+-2sigma_ver1.html)
+
 [zandaka](https://honeycrack7.github.io/asset/zandaka.html)
 
 
