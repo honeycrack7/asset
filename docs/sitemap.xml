@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/03/20/minos_issue/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</loc>
+    <lastmod>2020-03-20T22:27:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/hugo/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2017/06/17/minos_issue/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+</urlset>

@@ -1,0 +1,220 @@
+---
+title: "±2σ"
+author: ~
+date: "`r Sys.time()`"
+slug: 'minos_issue'
+categories: []
+tags: []
+Categories:
+  - 資産運用
+Description: ''
+Tags:
+  - 資産運用
+menu: ''
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+    md_extensions: -ascii_identifiers
+---
++-2sigma.Rmdのロジックを良くしたい  
+やりたいこと  
+mm/ddのリターンが過去〇〇日のリターンの-2σ以上なのか以下なのか判別したい
+
+# 前処理
+```{r echo=FALSE, include=FALSE}
+knitr::opts_chunk$set(comment='', message=FALSE, warning=FALSE, error=FALSE, 
+                      eval=TRUE, echo=TRUE, include=TRUE)
+
+options(scipen=1)
+
+daily1 <- read.table('C:\\tmp\\data\\ETF\\etf_daily.csv',sep=",",header=T)
+daily1$date <- as.Date(daily1$date)
+dailyrtn <- read.table("C:\\tmp\\data\\ETF\\dailyrtn.csv",sep=",",header=T)
+dailyrtn$date <- as.Date(dailyrtn$date)
+monthlyrtn <- read.table("C:\\tmp\\data\\ETF\\monthlyrtn.csv",sep=",",header=T)
+kokunaiETF <- read.csv("C:\\tmp\\data\\ETF\\kokunaiETF\\etf_etn_REIT_all.csv", sep = ",", header = T)
+kaigai <- c('ABFB','ACWI','AFK','AGG','AGGY','BBH','BIV','BLV','BND','BNDX','BRF','BSV','CHAD','CHAU','CIU','CNXT','CRED','CSJ','CURE','CWB','CWI','DBA','DBC','DEM','DES','DEW','DFE','DFJ','DGRE','DGRS','DGRW','DGS','DHS','DIA','DLN','DON','DRN','DRV','DUST','DVY','DXJ','DXJC','DXJF','DXJH','DXJR','DXJS','DXJT','EBND','EDC','EDV','EDZ','EEM','EEMS','EFA','EIDO','ELD','EMB','EMLC','EPHE','EPI','EPOL','EPP','ERUS','EUDG','EWG','EWJ','EWM','EWS','EWT','EWW','EWY','EWZ','EXI','EZA','FAS','FAZ','FM','FXI','GAL','GDX','GDXJ','GLD','GMF','GMM','GSG','GULF','HACK','HDV','HEDJ','HEWG','HEWJ','HEZU','HYEM','HYND','HYZD','HYG','IAU','IBB','IBLN','ICLN','IDHQ','IDX','IEF','IEMG','IEV','IFGL','IGF','IGOV','IHY','IJH','IJR','ILF','INDL','INKM','IOO','ITE','IVOG','IVOO','IVOV','IVV','IWM','IXC','IXG','IXJ','IXN','IXP','IYR','JNK','JXI','KLD','KNOW','KOL','KXI','LABD','LABU','LEMB','LQD','MBB','MGC','MGK','MGV','MOAT','MOO','MXI','NISE','NLR','NUGT','OEF','OIH','PAF','PBD','PEK','PFF','PIO','PPH','PXF','QQQ','REMX','RLY','RSX','RSXJ','RTH','RUSL','RUSS','RWR','RWX','RXI','SCIF','SDY','SHV','SHY','SLV','SLX','SMH','SPXL','SPXS','SPY','SRLN','SUSA','THD','TIP','TLT','TMF','TMV','TNA','TOK','TUR','TZA','VAW','VB','VBK','VBR','VCIT','VCLT','VCR','VCSH','VDC','VDE','VEA','VEU','VFH','VGIT','VGK','VGLT','VGSH','VGT','VHT','VIG','VIOG','VIOO','VIOV','VIS','VMBS','VNM','VO','VOE','VONE','VONG','VONV','VOO','VOOG','VOOV','VOT','VOX','VPL','VPU','VSS','VT','VTHR','VTI','VTIP','VTV','VTWG','VTWO','VTWV','VUG','VV','VWO','VWOB','VXF','VXUS','VYM','WOOD','XLB','XLE','XLF','XLI','XLK','XLP','XLRE','XLU','XLV','XLY','YYY','ZMLP','2800.HK','2801.HK','2802.HK','2805.HK','2816.HK','2823.HK','2827.HK','2828.HK','2829.HK','2833.HK','2835.HK','2836.HK','2838.HK','2844.HK','2846.HK','2848.HK','3005.HK','3006.HK','3007.HK','3009.HK','3015.HK','3017.HK','3019.HK','3020.HK','3025.HK','3026.HK','3027.HK','3035.HK','3036.HK','3039.HK','3040.HK','3043.HK','3048.HK','3049.HK','3050.HK','3052.HK','3057.HK','3061.HK','3062.HK','3063.HK','3082.HK','3085.HK','3087.HK','3092.HK','3099.HK','3110.HK','3127.HK','69500.H',"SSO","TQQQ")
+kounyu <- read.table("C:\\tmp\\data\\ETF\\kounyu.csv",sep=",",header=F)
+kounyu <- as.character(t(kounyu))
+ticker_filtered <- c(t(read.table('C:\\tmp\\data\\ETF\\ticker_filtered.txt')))
+#ticker_wanted <- c(t(read.table('c:\\tmp\\ticker_wanted.txt')))
+
+# -2σ計算対象
+ticker_tmp <- c(as.character(t(kokunaiETF$ticker)))
+```
+
+# -2σ計算
+```{r}
+
+# rm(tmp)
+# rm(tmp1)
+# rm(tmp2)
+# rm(touraku2)
+
+
+#過去1週間分を評価する
+  #結果テーブル準備
+    # tmp2 <- data.frame('date'=2017-01-01 , 'close'=999 , 'ticker'='aaa' , 'rtn'=0.99 ,
+    #                        'sigma'=0.99 , 'buysign'='buy')[-1,]
+    # tmp2 <- as.Date(tmp2[,1])
+    # touraku2 <- data.frame('date'=2017-01-01 , 'close'=999 , 'ticker'='aaa' , 'rtn'=0.99 ,
+    #                        'sigma'=0.99 , 'buysign'='buy')[-1,]
+    # touraku2[,1] <- as.Date(touraku2[,1])
+    tmp2 <- dailyrtn
+    tmp2 <- transform(tmp2, sigma=0)
+    tmp2 <- transform(tmp2, buysign='--')
+    tmp2[,1] <- ymd(tmp2[,1])
+    tmp2[,6] <- as.character(tmp2[,6])
+    tmp2 <- tmp2[-1,]
+    touraku2 <- head(dailyrtn,1)
+    touraku2 <- transform(touraku2, sigma=0)
+    touraku2 <- transform(touraku2, buysign='--')
+    touraku2[,1] <- ymd(touraku2[,1])
+    touraku2[,6] <- as.character(touraku2[,6])
+    touraku2 <- touraku2[-1,]
+
+  for (i in 1:length(ticker_tmp)){
+    
+    tmp <- subset(dailyrtn, ticker == ticker_tmp[i])
+    #列追加
+      tmp <- transform(tmp, sigma=0)
+      tmp <- transform(tmp, buysign='--')
+      tmp$date <- ymd(tmp$date)
+      tmp[,6] <- as.character(tmp[,6])
+      tmp <- tmp[-1,]
+
+    #1週間前の位置 1週間前から現在までのcloseを評価するの意
+      tarRow1 <- nrow(tmp) - 6
+      
+      for (k in tarRow1:nrow(tmp)) {
+      #過去300日分のリターンの-2σ計算
+        #tarRow2 <- k - 300
+        #過去300日分の抽出
+          #tmp1 <- subset(tmp, 
+          #               as.numeric(row.names(tmp)) >= tarRow2
+          #               & row.names(tmp) <= tarRow1 )
+          tmp1 <- tmp[1:tarRow1,]
+          tmp1 <- tail(tmp1, 300)
+        #-2σ計算
+          under2sigma <- quantile(tmp1$rtn,c(0.02275))
+        #-2σの追記
+          tmp[k, 5] <- under2sigma
+        #リターンとunder2sigmaを比較してbuyサインを立てる
+          if (tmp[k, 4] < tmp[k, 5]) {
+            tmp[k, 6] <- 'buy'
+          } else {
+            tmp[k, 6] <- '-'
+          }
+      }
+    #結果をテーブルへ
+      tmp2 <- rbind(tmp2, tmp)
+      touraku2 <- subset(tmp2, buysign=='buy')
+      touraku2$ticker <- as.factor(touraku2$ticker)
+      #1週間以内でフィルタ
+        touraku2 <- touraku2 %>%
+          filter(date >= Sys.Date()-7)
+  }
+  datatable(touraku2,
+          filter = 'top', 
+          style = 'bootstrap', class = 'table-bordered table-condensed',
+          extensions = 'ColReorder',
+          options = list(dom = 'Rlfrtip')
+          )
+  #write.table(touraku2,'touraku2.txt',sep="\t",quote=F,row.names = F)
+  
+  ticker_bakusagari <- as.character(t(touraku2$ticker))
+
+#購入済で下がった銘柄は？
+  ticker_kaimashikoho <- intersect(ticker_bakusagari, kounyu)
+#購入済でない銘柄は？
+  #setdiff(a,b)はaにあってbにないものを抽出する
+  ticker_shinkikoho <- setdiff(ticker_bakusagari, kounyu)
+  
+#  tmp <- subset(kokunaiETF, kokunaiETF$ticker %in% ticker_bakusagari)
+#  datatable(tmp,
+#        filter = 'top', 
+#        style = 'bootstrap', class = 'table-bordered table-condensed',
+#        extensions = 'ColReorder',
+#        options = list(dom = 'Rlfrtip')
+#        )
+```
+購入済で下がった銘柄  
+`r ticker_kaimashikoho`
+
+新規購入候補の銘柄  
+`r ticker_shinkikoho`
+
+# グラフ（確認用）
+```{r}
+#国内
+
+if (length(intersect(touraku2$ticker, kokunaiETF)) >= 1) {
+  g <- ggplot(NULL)
+  g <- g + geom_line(data = subset(daily1,
+                                   ticker %in% intersect(touraku2$ticker, kokunaiETF) &
+                                   year(date) >= 2017),
+                     aes(x=date, y=close, colour=ticker))
+  g <- g + geom_point(data = subset(touraku2,
+                                    ticker%in% intersect(touraku2$ticker, kokunaiETF) &
+                                    year(date) >= 2017),
+                      aes(x=date, y=close, colour=ticker))
+  ggplotly(g)
+} else {
+  tmp <- 0
+}
+
+#海外
+if (length(intersect(touraku2$ticker, kaigai)) >= 1) {
+  g <- ggplot(NULL)
+  g <- g + geom_line(data = subset(daily1,
+                                   ticker %in% intersect(touraku2$ticker, kaigai) &
+                                   year(date) >= 2017),
+                     aes(x=date, y=close, colour=ticker))
+  g <- g + geom_point(data = subset(touraku2,
+                                    ticker%in% intersect(touraku2$ticker, kaigai) &
+                                    year(date) >= 2017),
+                      aes(x=date, y=close, colour=ticker))
+  ggplotly(g)
+} else {
+  tmp <- 0
+}
+```
+
+# 
+```{r}
+  ggplotly(
+      ggplot(subset(monthlyrtn, ticker %in% ticker_bakusagari),
+             aes(x = return_monthly, colour = ticker)
+             ) + geom_density()
+  )
+```
+# 購入済銘柄との相関確認
+
+```{r}
+# ticker4 <- c()
+# f02 <- daily1 %>%
+#   filter(ticker %in% ticker_bakusagari | ticker %in% kounyu,
+#          date >= Sys.Date() - 365)
+# f02 <- dcast(f02, date ~ ticker, value.var='close')
+# f02 <- f02[,2:ncol(f02)]
+# f02 <- f02[,order(factor(colnames(f02),levels=ticker4))]
+# cor.plot(cor(f02, use='pairwise.complete.obs', method='p'),
+#          numbers=T)
+# corrplot.mixed(cor(f02, use='pairwise.complete.obs', method='p'),
+#                order = "hclust", tl.col = "black")
+
+#qgraph
+  # f03 <- f02
+  # groups <- list("購入済"=1:length(kounyu),"新規"=length(kounyu)+1:length(ticker_shinkikoho))
+  # qgraph(cor(f03, use='pairwise.complete.obs', method='p'),groups=groups)
+```
+
+```{js}
+    $(function(){
+      $("img:not(.lb-image)").wrap(function() {
+        return "<a href='" + $(this).attr("src") + "' data-lightbox='" + $(this).attr("scr") + "'></a>";
+      });
+    });
+```
