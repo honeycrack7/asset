@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on A Hugo website</title>
-    <link>/categories/hugo/</link>
+    <link>https://honeycrack7.github.io/asset/categories/hugo/</link>
     <description>Recent content in Hugo on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Sat, 17 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://honeycrack7.github.io/asset/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hugo-theme-minosのissue</title>
-      <link>/2017/06/17/minos_issue/</link>
+      <link>https://honeycrack7.github.io/asset/2017/06/17/minos_issue/</link>
       <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/17/minos_issue/</guid>
+      <guid>https://honeycrack7.github.io/asset/2017/06/17/minos_issue/</guid>
       <description>hugo-theme-minosというかHugoのissue 数式が表示できない themes &amp;gt; hugo-theme-minos &amp;gt; layouts &amp;gt; partials &amp;gt; footer.html に下記★を追記 } else { header.classList.add(&amp;#39;mobile-on&amp;#39;); } }); &amp;lt;/script&amp;gt; ★&amp;lt;scr</description>
     </item>
     

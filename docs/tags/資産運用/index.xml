@@ -6,7 +6,7 @@
     <description>Recent content in 資産運用 on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 20 Mar 2020 22:27:01 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 23:24:54 +0000</lastBuildDate>
     
 	<atom:link href="/tags/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>±2σ</title>
       <link>/2020/03/20/minos_issue/</link>
-      <pubDate>Fri, 20 Mar 2020 22:27:01 +0000</pubDate>
+      <pubDate>Fri, 20 Mar 2020 23:24:54 +0000</pubDate>
       
       <guid>/2020/03/20/minos_issue/</guid>
       <description>+-2sigma.Rmdのロジックを良くしたい やりたいこと mm/ddのリターンが過去〇〇日のリターンの-2σ以上なのか以下なのか判別したい 前</description>
