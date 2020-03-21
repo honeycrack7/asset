@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>hugo-theme-minosのissue // A Hugo website</title>
+    <title>vix-cfd-adjusted-price // A Hugo website</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,11 +10,11 @@
     <meta name="description" content="A website built through Hugo and blogdown.">
     
 
-        <meta property="og:title" content="hugo-theme-minosのissue" />
+        <meta property="og:title" content="vix-cfd-adjusted-price" />
     <meta property="og:description" content="A website built through Hugo and blogdown." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja" />
-    <meta property="og:url" content="https://honeycrack7.github.io/asset/2017/06/17/minos_issue/" />
+    <meta property="og:url" content="https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/" />
     
 
     <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -52,12 +52,12 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">hugo-theme-minosのissue</h1>
+            <h1 class="article-title" itemprop="name">vix-cfd-adjusted-price</h1>
         </header>
         
         <div class="article-meta">
-            <a href="../../../../2017/06/17/minos_issue/" class="article-date">
-                <time datetime='2017-06-17T00:00:00.000&#43;00:00' itemprop="datePublished">2017-06-17</time>
+            <a href="../../../../2020/03/21/vix-cfd-adjusted-price/" class="article-date">
+                <time datetime='2020-03-21T00:00:00.000&#43;00:00' itemprop="datePublished">2020-03-21</time>
             </a>
             
             
@@ -65,7 +65,12 @@
                 <div class="article-category">
                     
                     
-                    <a class="article-category-link" href="https://honeycrack7.github.io/asset//categories/hugo">Hugo</a>
+                    <a class="article-category-link" href="https://honeycrack7.github.io/asset//categories/development">Development</a>
+                    
+                    
+                    <span>&gt;</span>
+                    
+                    <a class="article-category-link" href="https://honeycrack7.github.io/asset//categories/golang">Golang</a>
                     
                 </div>
             </div>
@@ -76,62 +81,49 @@
             
 
 
-<div id="hugo-theme-minosというかhugoのissue" class="section level1">
-<h1>hugo-theme-minosというかHugoのissue</h1>
-<div id="投稿手順" class="section level2">
-<h2>投稿手順</h2>
-<p>options(blogdown.rmd=TRUE)<br />
-または<br />
-options(blogdown.ext = ‘.Rmd’)</p>
-</div>
-<div id="数式が表示できない" class="section level2">
-<h2>数式が表示できない</h2>
-<p>themes &gt; hugo-theme-minos &gt; layouts &gt; partials &gt; footer.html
-に下記★を追記</p>
-<pre><code>        } else {
-            header.classList.add(&#39;mobile-on&#39;);
-        }
-    });
-&lt;/script&gt;
-★&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
-&lt;/footer&gt;</code></pre>
-<p><span class="math display">\[
-P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)
-\]</span></p>
-<p><span class="math inline">\(P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)\)</span></p>
-</div>
-<div id="rmdでtoc_floatが効かない" class="section level2">
-<h2>rmdでtoc_floatが効かない</h2>
-<p>宿題（blogdownがそもそもそういう仕組みっぽい？）
-buildした後、下記の様に★を追記すれば動くことは動く。。</p>
-<pre class="html"><code>&lt;!-- BLOGDOWN-HEAD --&gt;
-&lt;!-- /BLOGDOWN-HEAD --&gt;
+<pre class="r"><code>vix &lt;- getSymbols(&quot;^VIX&quot;,src=&quot;yahoo&quot;, from=&quot;1900-01-03&quot;, to=Sys.Date(), auto.assign=FALSE)</code></pre>
+<pre><code>## &#39;getSymbols&#39; currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## &#39;loadSymbols&#39; to automatically load data. getOption(&quot;getSymbols.env&quot;)
+## and getOption(&quot;getSymbols.auto.assign&quot;) will still be checked for
+## alternate defaults.
+## 
+## This message is shown once per session and may be disabled by setting 
+## options(&quot;getSymbols.warning4.0&quot;=FALSE). See ?getSymbols for details.</code></pre>
+<pre class="r"><code>vix &lt;- data.frame(index(vix),coredata(vix))
+colnames(vix) &lt;- c(&quot;date&quot;,&quot;open&quot;,&quot;high&quot;,&quot;low&quot;,&quot;close&quot;,&quot;volume&quot;,&quot;adjusted&quot;)
+write.csv(vix, file = &quot;c:\\tmp\\data\\VIX\\VIX.csv&quot;,row.names = F)
 
-&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
-&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
-&lt;pre class=&quot;css&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;style type=&quot;text/css&quot;&gt;
+# usdjpy
+usdjpy &lt;- read.csv(&quot;C:\\tmp\\data\\quote\\quote.csv&quot;)
+usdjpy$date &lt;- as.Date(usdjpy$date)
 
-&lt;/style&gt;
-&lt;div id=&quot;a&quot; class=&quot;section level1&quot;&gt;
-&lt;h1&gt;a&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&quot;b&quot; class=&quot;section level1&quot;&gt;
-&lt;h1&gt;b&lt;/h1&gt;
-&lt;/div&gt;
+getFX(&quot;USD/JPY&quot;)</code></pre>
+<pre><code>## [1] &quot;USD/JPY&quot;</code></pre>
+<pre class="r"><code>tmp &lt;- data.frame(date = index(USDJPY), close = coredata(USDJPY))
+colnames(tmp) &lt;- c(&quot;date&quot;, &quot;USDJPY&quot;)
+usdjpy &lt;- rbind(usdjpy, tmp)
+usdjpy &lt;- usdjpy %&gt;%
+  distinct(date, .keep_all = TRUE) %&gt;%
+  arrange(date)
+write.csv(usdjpy, &quot;C:\\tmp\\data\\quote\\quote.csv&quot;, row.names = F)
 
-★        &lt;div class=&quot;article-toc&quot; style=&quot;display:none;&quot;&gt;
-★            &lt;h3&gt;Contents&lt;/h3&gt;
-★            &lt;nav id=&quot;TableOfContents&quot;&gt;
-★&lt;ul&gt;
-★&lt;li&gt;&lt;a href=&quot;#mdだと&quot;&gt;mdだと&lt;/a&gt;&lt;/li&gt;
-★&lt;li&gt;&lt;a href=&quot;#tocが有効になるのに&quot;&gt;tocが有効になるのに&lt;/a&gt;&lt;/li&gt;
-★&lt;/ul&gt;
-★&lt;/nav&gt;
+# vixを円換算
+tmp1 &lt;- merge(vix, usdjpy, by = &quot;date&quot;)
+tmp1 &lt;- tmp1 %&gt;%
+  mutate(close_jpy = close * USDJPY)
 
-&lt;/div&gt;</code></pre>
-</div>
-</div>
+vix_cfd_adjusted_price &lt;- read.csv(&quot;C:\\tmp\\data\\VIX\\vix_cfd_adjusted_price.csv&quot;)
+vix_cfd_adjusted_price$date &lt;- as.Date(vix_cfd_adjusted_price$date)
+vix_cfd_adjusted_price &lt;- melt(vix_cfd_adjusted_price, &quot;date&quot;)
+
+tmp1 &lt;- merge(tmp1[,c(1,9)], vix_cfd_adjusted_price, by = &quot;date&quot;)
+colnames(tmp1) &lt;- c(&quot;date&quot;, &quot;vix_close_JPY&quot;, &quot;variable&quot;, &quot;adjusted_price&quot;)
+
+ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;)</code></pre>
+<p><img src="../../../../post/2020-03-21-vix-cfd-adjusted-price_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 
         </div>
 
@@ -147,7 +139,12 @@ buildした後、下記の様に★を追記すれば動くことは動く。。
             <ul class="article-tag-list">
                 
                 <li class="article-tag-list-item">
-                    <a class="article-tag-list-link" href="https://honeycrack7.github.io/asset//tags/hugo">Hugo
+                    <a class="article-tag-list-link" href="https://honeycrack7.github.io/asset//tags/development">development
+                    </a>
+                </li>
+                
+                <li class="article-tag-list-item">
+                    <a class="article-tag-list-link" href="https://honeycrack7.github.io/asset//tags/golang">golang
                     </a>
                 </li>
                 

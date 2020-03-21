@@ -6,17 +6,26 @@
     <description>Recent content in Categories on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 17 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://honeycrack7.github.io/asset/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hugo</title>
-      <link>https://honeycrack7.github.io/asset/categories/hugo/</link>
-      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      <title>Development</title>
+      <link>https://honeycrack7.github.io/asset/categories/development/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/categories/hugo/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://honeycrack7.github.io/asset/categories/golang/</link>
+      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/categories/golang/</guid>
       <description></description>
     </item>
     
