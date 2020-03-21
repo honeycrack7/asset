@@ -6,7 +6,7 @@
     <description>Recent content in VIX on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 21 Mar 2020 14:23:41 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Mar 2020 15:16:02 +0000</lastBuildDate>
     
 	<atom:link href="/tags/vix/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>vix_cfd_adjusted_price</title>
       <link>/2020/03/21/minos_issue/</link>
-      <pubDate>Sat, 21 Mar 2020 14:23:41 +0000</pubDate>
+      <pubDate>Sat, 21 Mar 2020 15:16:02 +0000</pubDate>
       
       <guid>/2020/03/21/minos_issue/</guid>
       <description>vix &amp;lt;- getSymbols(&amp;quot;^VIX&amp;quot;,src=&amp;quot;yahoo&amp;quot;, from=&amp;quot;1900-01-03&amp;quot;, to=Sys.Date(), auto.assign=FALSE) ## &amp;#39;getSymbols&amp;#39; currently uses auto.assign=TRUE by default, but will ## use auto.assign=FALSE in 0.5-0. You will still be able to use ## &amp;#39;loadSymbols&amp;#39; to automatically load data. getOption(&amp;quot;getSymbols.env&amp;quot;) ## and getOption(&amp;quot;getSymbols.auto.assign&amp;quot;) will still be checked for ## alternate defaults. ## ## This message is shown once per session and may be disabled by setting ## options(&amp;quot;getSymbols.warning4.0&amp;quot;=FALSE). See ?getSymbols for details. vix &amp;lt;- data.frame(index(vix),coredata(vix)) colnames(vix)</description>
