@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vix_cfd_adjusted_price // A Hugo website</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+
+        <meta property="og:title" content="vix_cfd_adjusted_price" />
+    <meta property="og:description" content="A website built through Hugo and blogdown." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja" />
+    <meta property="og:url" content="/2020/03/21/minos_issue/" />
+    
+
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+
+    <link href="../../../../webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="../../../../webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.67.1" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="../../../../">A Hugo website</a>
+            <nav id="main-nav">
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">vix_cfd_adjusted_price</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="../../../../2020/03/21/minos_issue/" class="article-date">
+                <time datetime='2020-03-21T14:23:41.000&#43;00:00' itemprop="datePublished">2020-03-21</time>
+            </a>
+            
+            
+            <div class="post-categories">
+                <div class="article-category">
+                    
+                    
+                    <a class="article-category-link" href="//categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8">資産運用</a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            
+
+
+<pre class="r"><code>vix &lt;- getSymbols(&quot;^VIX&quot;,src=&quot;yahoo&quot;, from=&quot;1900-01-03&quot;, to=Sys.Date(), auto.assign=FALSE)</code></pre>
+<pre><code>## &#39;getSymbols&#39; currently uses auto.assign=TRUE by default, but will
+## use auto.assign=FALSE in 0.5-0. You will still be able to use
+## &#39;loadSymbols&#39; to automatically load data. getOption(&quot;getSymbols.env&quot;)
+## and getOption(&quot;getSymbols.auto.assign&quot;) will still be checked for
+## alternate defaults.
+## 
+## This message is shown once per session and may be disabled by setting 
+## options(&quot;getSymbols.warning4.0&quot;=FALSE). See ?getSymbols for details.</code></pre>
+<pre class="r"><code>vix &lt;- data.frame(index(vix),coredata(vix))
+colnames(vix) &lt;- c(&quot;date&quot;,&quot;open&quot;,&quot;high&quot;,&quot;low&quot;,&quot;close&quot;,&quot;volume&quot;,&quot;adjusted&quot;)
+write.csv(vix, file = &quot;c:\\tmp\\data\\VIX\\VIX.csv&quot;,row.names = F)
+
+# usdjpy
+usdjpy &lt;- read.csv(&quot;C:\\tmp\\data\\quote\\quote.csv&quot;)
+usdjpy$date &lt;- as.Date(usdjpy$date)
+
+getFX(&quot;USD/JPY&quot;)</code></pre>
+<pre><code>## [1] &quot;USD/JPY&quot;</code></pre>
+<pre class="r"><code>tmp &lt;- data.frame(date = index(USDJPY), close = coredata(USDJPY))
+colnames(tmp) &lt;- c(&quot;date&quot;, &quot;USDJPY&quot;)
+usdjpy &lt;- rbind(usdjpy, tmp)
+usdjpy &lt;- usdjpy %&gt;%
+  distinct(date, .keep_all = TRUE) %&gt;%
+  arrange(date)
+write.csv(usdjpy, &quot;C:\\tmp\\data\\quote\\quote.csv&quot;, row.names = F)
+
+# vixを円換算
+tmp1 &lt;- merge(vix, usdjpy, by = &quot;date&quot;)
+tmp1 &lt;- tmp1 %&gt;%
+  mutate(close_jpy = close * USDJPY)
+
+vix_cfd_adjusted_price &lt;- read.csv(&quot;C:\\tmp\\data\\VIX\\vix_cfd_adjusted_price.csv&quot;)
+vix_cfd_adjusted_price$date &lt;- as.Date(vix_cfd_adjusted_price$date)
+vix_cfd_adjusted_price &lt;- melt(vix_cfd_adjusted_price, &quot;date&quot;)
+
+tmp1 &lt;- merge(tmp1[,c(1,9)], vix_cfd_adjusted_price, by = &quot;date&quot;)
+colnames(tmp1) &lt;- c(&quot;date&quot;, &quot;vix_close_JPY&quot;, &quot;variable&quot;, &quot;adjusted_price&quot;)
+
+ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;)</code></pre>
+<p><img src="../../../../post/2020-03-21-vix-cfd-adjusted-price_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+
+        </div>
+
+        
+        
+        
+
+        
+
+
+        
+        <footer class="article-footer">
+            <ul class="article-tag-list">
+                
+                <li class="article-tag-list-item">
+                    <a class="article-tag-list-link" href="//tags/vix">VIX
+                    </a>
+                </li>
+                
+            </ul>
+        </footer>
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="../../../../2017/06/17/minos_issue/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">hugo-theme-minosのissue&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 A Hugo website
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>
