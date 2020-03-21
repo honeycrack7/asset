@@ -1,0 +1,15 @@
+---
+title: daily_unyo
+author: ~
+date: '9999-12-31'
+slug: daily-unyo
+categories: []
+tags: []
+Categories:
+  - 資産運用
+Description: ''
+menu: ''
+---
+
+[±2σ](./+-2sigma_ver1.html)  
+[zandaka](./zandaka.html)

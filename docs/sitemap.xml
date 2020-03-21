@@ -3,53 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/development/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <loc>/9999/12/31/daily-unyo/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/development/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/golang/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
+    <loc>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/golang/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/post/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/tags/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</loc>
-    <lastmod>2020-03-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/</loc>
+    <loc>/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
   </url>
   
 </urlset>
