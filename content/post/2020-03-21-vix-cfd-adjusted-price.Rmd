@@ -12,7 +12,7 @@ Tags:
   - VIX
 menu: ''
 ---
-```{r}
+```{r echo=FALSE, include=FALSE}
 vix <- getSymbols("^VIX",src="yahoo", from="1900-01-03", to=Sys.Date(), auto.assign=FALSE)
 vix <- data.frame(index(vix),coredata(vix))
 colnames(vix) <- c("date","open","high","low","close","volume","adjusted")
@@ -34,7 +34,7 @@ write.csv(usdjpy, "C:\\tmp\\data\\quote\\quote.csv", row.names = F)
 # vixを円換算
 tmp1 <- merge(vix, usdjpy, by = "date")
 tmp1 <- tmp1 %>%
-  mutate(close_jpy = close * USDJPY)
+  mutate(close_jpy = round(close * USDJPY, digits = 0))
 
 vix_cfd_adjusted_price <- read.csv("C:\\tmp\\data\\VIX\\vix_cfd_adjusted_price.csv")
 vix_cfd_adjusted_price$date <- as.Date(vix_cfd_adjusted_price$date)
@@ -42,9 +42,31 @@ vix_cfd_adjusted_price <- melt(vix_cfd_adjusted_price, "date")
 
 tmp1 <- merge(tmp1[,c(1,9)], vix_cfd_adjusted_price, by = "date")
 colnames(tmp1) <- c("date", "vix_close_JPY", "variable", "adjusted_price")
+```
 
+```{r}
+datatable(tmp1,
+        filter = 'top',
+        style = 'bootstrap',
+        class = 'table-bordered table-condensed',
+#        class = 'cell-border stripe',
+        extensions = 'ColReorder',
+        options = list(dom = 'Rlfrtip',
+                       colReorder = list(realtime = TRUE),
+                       buttons = I('colvis'),
+                       scrollX = TRUE,
+                       scrollCollapse = TRUE
+                       )
+        )
+
+# datatable(tmp1,
+#         filter = 'top', 
+#         style = 'bootstrap', class = 'table-bordered table-condensed',
+#         extensions = 'ColReorder',
+#         options = list(dom = 'Rlfrtip')
+#         )
+    
 ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
   geom_point() +
   geom_smooth(method = "lm")
-
 ```

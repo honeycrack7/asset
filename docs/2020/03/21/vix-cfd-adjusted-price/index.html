@@ -74,51 +74,50 @@
         </div>
         <div class="article-entry" itemprop="articleBody">
             
+<script src="../../../../rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="../../../../rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="../../../../rmarkdown-libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="../../../../rmarkdown-libs/dt-core-bootstrap/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="../../../../rmarkdown-libs/dt-core-bootstrap/css/dataTables.bootstrap.extra.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/dt-core-bootstrap/js/jquery.dataTables.min.js"></script>
+<script src="../../../../rmarkdown-libs/dt-core-bootstrap/js/dataTables.bootstrap.min.js"></script>
+<link href="../../../../rmarkdown-libs/dt-ext-colreorder-bootstrap/css/colReorder.bootstrap.min.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/dt-ext-colreorder-bootstrap/js/dataTables.colReorder.min.js"></script>
+<link href="../../../../rmarkdown-libs/nouislider/jquery.nouislider.min.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/nouislider/jquery.nouislider.min.js"></script>
+<link href="../../../../rmarkdown-libs/selectize/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/selectize/selectize.min.js"></script>
+<link href="../../../../rmarkdown-libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="../../../../rmarkdown-libs/crosstalk/js/crosstalk.min.js"></script>
 
 
-<pre class="r"><code>vix &lt;- getSymbols(&quot;^VIX&quot;,src=&quot;yahoo&quot;, from=&quot;1900-01-03&quot;, to=Sys.Date(), auto.assign=FALSE)</code></pre>
-<pre><code>## &#39;getSymbols&#39; currently uses auto.assign=TRUE by default, but will
-## use auto.assign=FALSE in 0.5-0. You will still be able to use
-## &#39;loadSymbols&#39; to automatically load data. getOption(&quot;getSymbols.env&quot;)
-## and getOption(&quot;getSymbols.auto.assign&quot;) will still be checked for
-## alternate defaults.
-## 
-## This message is shown once per session and may be disabled by setting 
-## options(&quot;getSymbols.warning4.0&quot;=FALSE). See ?getSymbols for details.</code></pre>
-<pre class="r"><code>vix &lt;- data.frame(index(vix),coredata(vix))
-colnames(vix) &lt;- c(&quot;date&quot;,&quot;open&quot;,&quot;high&quot;,&quot;low&quot;,&quot;close&quot;,&quot;volume&quot;,&quot;adjusted&quot;)
-write.csv(vix, file = &quot;c:\\tmp\\data\\VIX\\VIX.csv&quot;,row.names = F)
-
-# usdjpy
-usdjpy &lt;- read.csv(&quot;C:\\tmp\\data\\quote\\quote.csv&quot;)
-usdjpy$date &lt;- as.Date(usdjpy$date)
-
-getFX(&quot;USD/JPY&quot;)</code></pre>
-<pre><code>## [1] &quot;USD/JPY&quot;</code></pre>
-<pre class="r"><code>tmp &lt;- data.frame(date = index(USDJPY), close = coredata(USDJPY))
-colnames(tmp) &lt;- c(&quot;date&quot;, &quot;USDJPY&quot;)
-usdjpy &lt;- rbind(usdjpy, tmp)
-usdjpy &lt;- usdjpy %&gt;%
-  distinct(date, .keep_all = TRUE) %&gt;%
-  arrange(date)
-write.csv(usdjpy, &quot;C:\\tmp\\data\\quote\\quote.csv&quot;, row.names = F)
-
-# vixを円換算
-tmp1 &lt;- merge(vix, usdjpy, by = &quot;date&quot;)
-tmp1 &lt;- tmp1 %&gt;%
-  mutate(close_jpy = close * USDJPY)
-
-vix_cfd_adjusted_price &lt;- read.csv(&quot;C:\\tmp\\data\\VIX\\vix_cfd_adjusted_price.csv&quot;)
-vix_cfd_adjusted_price$date &lt;- as.Date(vix_cfd_adjusted_price$date)
-vix_cfd_adjusted_price &lt;- melt(vix_cfd_adjusted_price, &quot;date&quot;)
-
-tmp1 &lt;- merge(tmp1[,c(1,9)], vix_cfd_adjusted_price, by = &quot;date&quot;)
-colnames(tmp1) &lt;- c(&quot;date&quot;, &quot;vix_close_JPY&quot;, &quot;variable&quot;, &quot;adjusted_price&quot;)
-
+<pre class="r"><code>datatable(tmp1,
+        filter = &#39;top&#39;,
+        style = &#39;bootstrap&#39;,
+        class = &#39;table-bordered table-condensed&#39;,
+#        class = &#39;cell-border stripe&#39;,
+        extensions = &#39;ColReorder&#39;,
+        options = list(dom = &#39;Rlfrtip&#39;,
+                       colReorder = list(realtime = TRUE),
+                       buttons = I(&#39;colvis&#39;),
+                       scrollX = TRUE,
+                       scrollCollapse = TRUE
+                       )
+        )</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"style":"bootstrap","filter":"top","filterHTML":"<tr>\n  <td><\/td>\n  <td data-type=\"date\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1473811200000\" data-max=\"1583884800000\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"1104\" data-max=\"5635\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"factor\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"width: 100%; display: none;\">\n      <select multiple=\"multiple\" style=\"width: 100%;\" data-options=\"[&quot;buy_adjusted_JPY&quot;,&quot;sell_adjusted_JPY&quot;]\"><\/select>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none; position: absolute; width: 200px;\">\n      <div data-min=\"-815\" data-max=\"815\" data-scale=\"1\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","extensions":["ColReorder"],"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86"],["2016-09-14","2016-09-14","2016-10-12","2016-10-12","2016-11-09","2016-11-09","2016-12-14","2016-12-14","2017-01-11","2017-01-11","2017-02-08","2017-02-08","2017-03-15","2017-03-15","2017-04-12","2017-04-12","2017-05-10","2017-05-10","2017-06-14","2017-06-14","2017-07-12","2017-07-12","2017-08-09","2017-08-09","2017-09-13","2017-09-13","2017-10-11","2017-10-11","2017-11-08","2017-11-08","2017-12-13","2017-12-13","2018-01-10","2018-01-10","2018-02-07","2018-02-07","2018-03-14","2018-03-14","2018-04-11","2018-04-11","2018-05-09","2018-05-09","2018-06-13","2018-06-13","2018-07-11","2018-07-11","2018-08-15","2018-08-15","2018-09-12","2018-09-12","2018-10-10","2018-10-10","2018-11-14","2018-11-14","2018-12-12","2018-12-12","2019-01-09","2019-01-09","2019-02-06","2019-02-06","2019-03-12","2019-03-12","2019-04-10","2019-04-10","2019-05-15","2019-05-15","2019-06-12","2019-06-12","2019-07-10","2019-07-10","2019-08-14","2019-08-14","2019-09-11","2019-09-11","2019-10-09","2019-10-09","2019-11-13","2019-11-13","2019-12-11","2019-12-11","2020-01-15","2020-01-15","2020-02-12","2020-02-12","2020-03-11","2020-03-11"],[1866,1866,1649,1649,1511,1511,1519,1519,1306,1306,1288,1288,1336,1336,1728,1728,1163,1163,1171,1171,1171,1171,1222,1222,1157,1157,1106,1106,1113,1113,1155,1155,1104,1104,3035,3035,1838,1838,2168,2168,1467,1467,1430,1430,1512,1512,1631,1631,1466,1466,2596,2596,2421,2421,2437,2437,2173,2173,1690,1690,1535,1535,1479,1479,1802,1802,1727,1727,1420,1420,2351,2351,1575,1575,2003,2003,1415,1415,1627,1627,1365,1365,1512,1512,5635,5635],["buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY","buy_adjusted_JPY","sell_adjusted_JPY"],[-54.4,54.4,-96.1,96.1,-86.1,86.1,-224.6,224.6,196.1,-196.1,-155.5,155.5,-128.1,128.1,148.1,-148.1,109.7,-109.7,-86.5,86.5,-99.6,99.6,-149.3,149.3,154.9,-154.9,-159.6,159.6,-161.6,161.6,-162,162,-111.4,111.4,-386,386,10.6,-10.6,65.2,-65.2,-84.4,84.4,104.9,-104.9,-78.4,78.4,-38.7,38.7,-108.9,108.9,-184.5,184.5,86.3,-86.3,74.7,-74.7,-15.1,15.1,-47.2,47.2,133.5,-133.5,-154.2,154.2,-49.2,49.2,-78.1,78.1,169.1,-169.1,101.6,-101.6,-175.6,175.6,-77.4,77.4,202.3,-202.3,-197.5,197.5,-249.4,249.4,-93.5,93.5,815,-815]],"container":"<table class=\"table table-bordered table-condensed\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>date<\/th>\n      <th>vix_close_JPY<\/th>\n      <th>variable<\/th>\n      <th>adjusted_price<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Rlfrtip","colReorder":{"realtime":true},"buttons":["colvis"],"scrollX":true,"scrollCollapse":true,"columnDefs":[{"className":"dt-right","targets":[2,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code># datatable(tmp1,
+#         filter = &#39;top&#39;, 
+#         style = &#39;bootstrap&#39;, class = &#39;table-bordered table-condensed&#39;,
+#         extensions = &#39;ColReorder&#39;,
+#         options = list(dom = &#39;Rlfrtip&#39;)
+#         )
+    
 ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;)</code></pre>
-<p><img src="../../../../post/2020-03-21-vix-cfd-adjusted-price_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="../../../../post/2020-03-21-vix-cfd-adjusted-price_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
 
         </div>
 
@@ -144,9 +143,9 @@ ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
     </div>
     <nav id="article-nav">
     
-    <a href="../../../../9999/12/31/daily-unyo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../../2020/03/21/optionpremium/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            daily_unyo
+            OptionPremium
         </div>
     </a>
     

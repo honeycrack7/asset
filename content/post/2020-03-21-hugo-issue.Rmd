@@ -1,0 +1,73 @@
+---
+title: HUGO issue
+author: ~
+date: '2020-03-21'
+slug: hugo-issue
+categories: ["HUGO"]
+tags: ["HUGO"]
+Categories:
+  - HUGO
+Tags:
+  - HUGO
+Description: ''
+menu: ''
+---
+
+# hugo-theme-minosというかHugoのissue
+## 投稿手順
+
+options(blogdown.rmd=TRUE)  
+または  
+options(blogdown.ext = '.Rmd')
+
+
+## 数式が表示できない
+themes > hugo-theme-minos > layouts > partials > footer.html
+に下記★を追記
+
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+    ★<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </footer>
+
+$$
+P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)
+$$
+
+$P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)$
+
+## rmdでtoc_floatが効かない
+宿題（blogdownがそもそもそういう仕組みっぽい？）
+buildした後、下記の様に★を追記すれば動くことは動く。。
+
+```{html}
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<pre class="css"><code></code></pre>
+<style type="text/css">
+
+</style>
+<div id="a" class="section level1">
+<h1>a</h1>
+</div>
+<div id="b" class="section level1">
+<h1>b</h1>
+</div>
+
+★        <div class="article-toc" style="display:none;">
+★            <h3>Contents</h3>
+★            <nav id="TableOfContents">
+★<ul>
+★<li><a href="#mdだと">mdだと</a></li>
+★<li><a href="#tocが有効になるのに">tocが有効になるのに</a></li>
+★</ul>
+★</nav>
+
+</div>
+```

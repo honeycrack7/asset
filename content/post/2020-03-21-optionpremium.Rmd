@@ -1,0 +1,159 @@
+---
+title: OptionPremium
+author: ~
+date: '2020-03-21'
+slug: optionpremium
+categories: []
+tags: []
+Categories:
+Description: ''
+Tags:
+menu: ''
+includes:
+  in_header: include_lightbox.html
+---
+プットオプションを月にいくら買えばよいかを検討する
+
+```{r echo=FALSE, include=FALSE}
+# 前処理
+knitr::opts_chunk$set(comment='', message=FALSE, warning=FALSE, error=FALSE, 
+                      eval=TRUE, echo=TRUE, include=TRUE)
+
+options(scipen=1)
+
+```
+
+ブラックショールズモデルの一般的には変数は以下  
+S：株価  
+σ：ボラティリティ  
+r：無リスク金利  
+q：配当率  
+T：満期  
+K：権利行使価格  
+
+算出式は下記の通り
+BS_call = function(S, K, r, q, sigma, T)  
+{  
+ d1 = ( log(S/K) + (r - q + sigma^2/2)*T)/( sigma* sqrt(T))  
+ d2 = ( log(S/K) + (r - q - sigma^2/2)*T)/( sigma* sqrt(T))  
+ C0 = exp(-q*T)*S * pnorm(d1) - exp(-r*T)*K*pnorm(d2)  
+ return(C0)  
+}  
+
+S：株価  20000で固定する  
+σ：ボラティリティ  変動させる  
+r：無リスク金利  -0.067（3/13時点の無担保コールＯ／Ｎ物レート）  
+q：配当率  0とする  
+T：満期  3/12 = 0.25(年)とする  
+K：権利行使価格  1000～40000とする
+
+
+```{r}
+  BS_call = function(S, K, r, q, sigma, T)  
+  {  
+   d1 = ( log(S/K) + (r - q + sigma^2/2)*T)/( sigma* sqrt(T))  
+   d2 = ( log(S/K) + (r - q - sigma^2/2)*T)/( sigma* sqrt(T))  
+   C0 = exp(-q*T)*S * pnorm(d1) - exp(-r*T)*K*pnorm(d2)  
+   return(C0)  
+  }  
+
+S <- 20000
+sigma <- seq(0.1, 1, by = 0.1)
+r <- -0.067/100
+q <- 0
+T <- 0.25
+K <- seq(1000, 40000, by = 1000)
+
+df00 <- matrix(0, nrow=length(sigma), ncol=length(K))
+
+for ( i in 1:length(sigma) ) {
+  for ( j in 1:length(K) ) {
+    df00[i, j] <- BS_call(S, K[j], r, q, sigma[i], T)
+  }
+}
+
+df01 <- list(x = K,
+            y = sigma,
+            z = df00,
+            type = "surface")
+plot_ly(x = df01$x , y = df01$y , z = df01$z , type = "surface" , showscale=FALSE)
+
+```
+
+# プレミアム（プットオプション）
+
+```{r}
+BS_put  <- function(S,K,r,sigma,T)
+{
+d1 <- (log(S/K)+(r+sigma^2/2 )*T) / (sigma*sqrt(T))
+d2 <-　d1　-　sigma*sqrt(T)
+C0<-S*pnorm(d1)-exp(-r*T)*K*pnorm(d2)
+P0<-C0-S+exp(-r*T)*K
+return(P0)
+}
+
+S <- 20000
+K <- seq(1000, 40000, by = 1000)
+r <- -0.067/100
+sigma <- seq(0.1, 1, by = 0.1)
+T <- 0.25
+
+df02 <- matrix(0, nrow=length(sigma), ncol=length(K))
+
+for ( i in 1:length(sigma) ) {
+  for ( j in 1:length(K) ) {
+    df02[i, j] <- BS_put(S, K[j], r, sigma[i], T)
+  }
+}
+
+df03 <- list(x = K,
+            y = sigma,
+            z = df02,
+            type = "surface")
+plot_ly(x = df03$x , y = df03$y , z = df03$z , type = "surface" , showscale=FALSE)
+```
+
+# プレミアム（プットオプション）
+
+権利行使価格のみを変動させる
+```{r}
+S <- 20000
+K <- seq(1000, 40000, by = 1)
+r <- -0.067/100
+sigma <- 0.3
+T <- 0.25
+
+ggplotly(
+  ggplot(data.frame(StrikePrice = K, premium = BS_put(S,K,r,sigma,T)),
+         aes(StrikePrice, premium)) +
+    geom_line()
+)
+```
+sigmaのみを変動させる
+```{r}
+S <- 20000
+K = 20000
+r <- -0.067/100
+sigma <- seq(0.1, 1, by = 0.01)
+T = 0.25
+
+ggplotly(
+  ggplot(data.frame("sigma" = sigma, premium = BS_put(S,K,r,sigma,T)),
+         aes(sigma, premium)) +
+    geom_line()
+)
+```
+満期のみを変動させる
+```{r}
+S <- 20000
+K <- 20000
+r <- -0.067/100
+sigma <- 0.3
+T <- seq(0.01, 1, by = 0.01)
+
+
+  ggplot(data.frame(Maturity = T, premium = BS_put(S,K,r,sigma,T)),
+         aes(Maturity, premium)) +
+    geom_line()
+
+```
