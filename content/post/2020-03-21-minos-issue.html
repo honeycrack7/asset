@@ -1,0 +1,75 @@
+---
+title: hugo-theme-minosのissue
+author: ~
+date: '2017-06-17'
+slug: 'minos_issue'
+categories: [Hugo]
+tags: [Hugo]
+Description: ''
+menu: ''
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+    md_extensions: -ascii_identifiers
+---
+
+
+
+<div id="hugo-theme-minosというかhugoのissue" class="section level1">
+<h1>hugo-theme-minosというかHugoのissue</h1>
+<div id="投稿手順" class="section level2">
+<h2>投稿手順</h2>
+<p>options(blogdown.rmd=TRUE)<br />
+または<br />
+options(blogdown.ext = ‘.Rmd’)</p>
+</div>
+<div id="数式が表示できない" class="section level2">
+<h2>数式が表示できない</h2>
+<p>themes &gt; hugo-theme-minos &gt; layouts &gt; partials &gt; footer.html
+に下記★を追記</p>
+<pre><code>        } else {
+            header.classList.add(&#39;mobile-on&#39;);
+        }
+    });
+&lt;/script&gt;
+★&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+&lt;/footer&gt;</code></pre>
+<p><span class="math display">\[
+P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)
+\]</span></p>
+<p><span class="math inline">\(P(X=k)=_{n}C_{k}p^k(1-p)^{n-k} (k=0,1,2,…,n)\)</span></p>
+</div>
+<div id="rmdでtoc_floatが効かない" class="section level2">
+<h2>rmdでtoc_floatが効かない</h2>
+<p>宿題（blogdownがそもそもそういう仕組みっぽい？）
+buildした後、下記の様に★を追記すれば動くことは動く。。</p>
+<pre class="html"><code>&lt;!-- BLOGDOWN-HEAD --&gt;
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
+&lt;pre class=&quot;css&quot;&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+
+&lt;/style&gt;
+&lt;div id=&quot;a&quot; class=&quot;section level1&quot;&gt;
+&lt;h1&gt;a&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div id=&quot;b&quot; class=&quot;section level1&quot;&gt;
+&lt;h1&gt;b&lt;/h1&gt;
+&lt;/div&gt;
+
+★        &lt;div class=&quot;article-toc&quot; style=&quot;display:none;&quot;&gt;
+★            &lt;h3&gt;Contents&lt;/h3&gt;
+★            &lt;nav id=&quot;TableOfContents&quot;&gt;
+★&lt;ul&gt;
+★&lt;li&gt;&lt;a href=&quot;#mdだと&quot;&gt;mdだと&lt;/a&gt;&lt;/li&gt;
+★&lt;li&gt;&lt;a href=&quot;#tocが有効になるのに&quot;&gt;tocが有効になるのに&lt;/a&gt;&lt;/li&gt;
+★&lt;/ul&gt;
+★&lt;/nav&gt;
+
+&lt;/div&gt;</code></pre>
+</div>
+</div>

@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://honeycrack7.github.io/asset/categories/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://honeycrack7.github.io/asset/tags/hugo/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://honeycrack7.github.io/asset/categories/hugo/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://honeycrack7.github.io/asset/2017/06/17/minos_issue/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://honeycrack7.github.io/asset/post/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://honeycrack7.github.io/asset/tags/</loc>
+    <lastmod>2017-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://honeycrack7.github.io/asset/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
@@ -10,14 +40,6 @@
   <url>
     <loc>https://honeycrack7.github.io/asset/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/tags/</loc>
   </url>
   
 </urlset>
