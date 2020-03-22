@@ -157,3 +157,11 @@ T <- seq(0.01, 1, by = 0.01)
     geom_line()
 
 ```
+
+```{js echo=FALSE}
+    $(function(){
+      $("img:not(.lb-image)").wrap(function() {
+        return "<a href='" + $(this).attr("src") + "' data-lightbox='" + $(this).attr("scr") + "'></a>";
+      });
+    });
+```

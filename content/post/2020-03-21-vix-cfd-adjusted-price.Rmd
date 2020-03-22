@@ -1,5 +1,5 @@
 ---
-title: vix_cfd_adjusted_price
+title: VIX CFD 価格調整額
 author: ~
 date: '2020-03-21'
 slug: vix-cfd-adjusted-price
@@ -69,4 +69,11 @@ datatable(tmp1,
 ggplot(tmp1, aes(x = vix_close_JPY, y = adjusted_price, color = variable)) +
   geom_point() +
   geom_smooth(method = "lm")
+```
+```{js echo=FALSE}
+    $(function(){
+      $("img:not(.lb-image)").wrap(function() {
+        return "<a href='" + $(this).attr("src") + "' data-lightbox='" + $(this).attr("scr") + "'></a>";
+      });
+    });
 ```
