@@ -6,10 +6,19 @@
     <description>Recent content in 資産運用 on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>daily_unyo</title>
+      <link>/9999/12/31/daily-unyo/</link>
+      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
+      
+      <guid>/9999/12/31/daily-unyo/</guid>
+      <description>±2σ zandaka</description>
+    </item>
     
     <item>
       <title>VIX CFD 価格調整額</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Categories on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>資産運用</title>
+      <link>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>HUGO</title>
@@ -17,15 +26,6 @@
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/categories/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>資産運用</title>
-      <link>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
       <description></description>
     </item>
     

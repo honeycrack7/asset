@@ -1,4 +1,4 @@
-﻿---
+---
 title: daily_unyo
 author: ~
 date: '9999-12-31'
@@ -11,3 +11,4 @@ menu: ''
 
 [±2σ](./+-2sigma_ver1.html)  
 [zandaka](./zandaka.html)
+ 

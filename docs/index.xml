@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>daily_unyo</title>
+      <link>/9999/12/31/daily-unyo/</link>
+      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
+      
+      <guid>/9999/12/31/daily-unyo/</guid>
+      <description>±2σ zandaka</description>
+    </item>
+    
+    <item>
       <title>HUGO issue</title>
       <link>/2020/03/21/hugo-issue/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
