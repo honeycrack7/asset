@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Hugo website</title>
-    <link>https://honeycrack7.github.io/asset/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://honeycrack7.github.io/asset/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>HUGO</title>
-      <link>https://honeycrack7.github.io/asset/categories/hugo/</link>
-      <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
+      <title>資産運用</title>
+      <link>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/categories/hugo/</guid>
+      <guid>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>資産運用</title>
-      <link>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+      <title>HUGO</title>
+      <link>/categories/hugo/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
+      <guid>/categories/hugo/</guid>
       <description></description>
     </item>
     
