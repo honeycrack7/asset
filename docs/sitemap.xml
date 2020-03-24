@@ -23,6 +23,26 @@
   </url>
   
   <url>
+    <loc>/2020/03/24/test/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/03/24/prob/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/%E7%B5%B1%E8%A8%88/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/03/24/statistics/</loc>
+    <lastmod>2020-03-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/hugo/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>

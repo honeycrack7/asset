@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>統計基礎 // A Hugo website</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <meta name="description" content="A website built through Hugo and blogdown.">
+    
+
+        <meta property="og:title" content="統計基礎" />
+    <meta property="og:description" content="A website built through Hugo and blogdown." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja" />
+    <meta property="og:url" content="/2020/03/24/cv/" />
+    
+
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+
+    <link href="../../../../webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="../../../../webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.67.1" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="../../../../">A Hugo website</a>
+            <nav id="main-nav">
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">統計基礎</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="../../../../2020/03/24/cv/" class="article-date">
+                <time datetime='2020-03-24T00:00:00.000&#43;00:00' itemprop="datePublished">2020-03-24</time>
+            </a>
+            
+            
+            <div class="post-categories">
+                <div class="article-category">
+                    
+                    
+                    <a class="article-category-link" href="//categories/%E7%B5%B1%E8%A8%88">統計</a>
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 自動補完設定</span>
+<span style="color:#f92672">%</span>config IPCompleter<span style="color:#f92672">.</span>greedy<span style="color:#f92672">=</span>True
+</code></pre></div><h1 id="変動係数">変動係数</h1>
+<p>$$
+変動係数　C.V.=\frac{s}{\overline{X}}
+$$</p>
+<p>異なる重量や単位を持つデータのバラツキ具合を比較できる様にする係数</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statistics <span style="color:#f92672">import</span> mean, median, variance, stdev
+<span style="color:#75715e"># import numpy as np</span>
+
+data <span style="color:#f92672">=</span> [<span style="color:#ae81ff">60</span>,<span style="color:#ae81ff">80</span>,<span style="color:#ae81ff">90</span>,<span style="color:#ae81ff">40</span>,<span style="color:#ae81ff">70</span>]
+<span style="color:#75715e"># data = np.array([100,200,300])</span>
+
+m <span style="color:#f92672">=</span> mean(data)
+
+median <span style="color:#f92672">=</span> median(data)
+
+<span style="color:#75715e"># 偏差</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dev</span>(n):
+    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">-</span> m
+deviation <span style="color:#f92672">=</span> list(map(dev, data))
+
+<span style="color:#75715e"># 分散</span>
+variance <span style="color:#f92672">=</span> variance(data)
+
+<span style="color:#75715e"># 標準偏差</span>
+stdev <span style="color:#f92672">=</span> stdev(data)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;平均: {0:.2f}&#39;</span><span style="color:#f92672">.</span>format(m))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;中央値: {0:.2f}&#39;</span><span style="color:#f92672">.</span>format(median))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;偏差: &#39;</span>,deviation)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;分散: {0:.2f}&#39;</span><span style="color:#f92672">.</span>format(variance))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;標準偏差: {0:.2f}&#39;</span><span style="color:#f92672">.</span>format(stdev))
+</code></pre></div><pre><code>平均: 68.00
+中央値: 70.00
+偏差:  [-8, 12, 22, -28, 2]
+分散: 370.00
+標準偏差: 19.24
+</code></pre>
+<h1 id="標準偏差">標準偏差</h1>
+<p>標準偏差は金融ではリスクと同義。例えば「期待リターン5%、リスク10%」と言った場合は、<br>
+リターン分布が正規分布に従うと仮定し、将来リターンが68.3%の確率で-5%(=5-10) ～ +15％(=5+10)の間に収まる<br>
+ということを意味する。</p>
+<h1 id="相関係数">相関係数</h1>
+<p>$$
+r_{xy} = \frac{\displaystyle \sum_{i = 1}^n (x_i - \overline{x})
+(y_i - \overline{y})}{\sqrt{\displaystyle \sum_{i = 1}^n
+(x_i - \overline{x})^2}\sqrt{\displaystyle \sum_{i = 1}^n
+(y_i - \overline{y})^2}}
+$$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#75715e"># テスト用のリストを作る</span>
+l1<span style="color:#f92672">=</span>list(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+l2<span style="color:#f92672">=</span>list(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+
+<span style="color:#75715e"># 作ったlist</span>
+<span style="color:#66d9ef">print</span>(l1)
+[<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>]
+<span style="color:#66d9ef">print</span>(l2)
+[<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
+
+<span style="color:#75715e"># リストをps.Seriesに変換</span>
+s1<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>Series(l1)
+s2<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>Series(l2)
+
+<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
+res<span style="color:#f92672">=</span>s1<span style="color:#f92672">.</span>corr(s2)   <span style="color:#75715e"># numpy.float64 に格納される</span>
+
+<span style="color:#75715e"># 結果</span>
+<span style="color:#66d9ef">print</span>(res)
+
+</code></pre></div><pre><code>[5, 4, 1, 2, 4, 7, 3, 2, 7, 2]
+[4, 3, 1, 3, 5, 3, 7, 5, 2, 7]
+-0.2368749156955745
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#75715e"># テスト用のDataFrameを作る</span>
+df<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;idx&#39;</span><span style="color:#f92672">+</span>str(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)])
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+    df[<span style="color:#e6db74">&#39;col&#39;</span><span style="color:#f92672">+</span>str(i)]<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">10</span>)
+
+<span style="color:#75715e"># 作ったdata frame</span>
+<span style="color:#66d9ef">print</span>(df)
+
+<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
+res<span style="color:#f92672">=</span>df<span style="color:#f92672">.</span>corr()   <span style="color:#75715e"># pandasのDataFrameに格納される</span>
+
+<span style="color:#75715e"># 結果</span>
+<span style="color:#66d9ef">print</span>(res)
+
+<span style="color:#75715e"># ヒートマップ</span>
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+sns<span style="color:#f92672">.</span>heatmap(df<span style="color:#f92672">.</span>corr(), cmap<span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>color_palette(<span style="color:#e6db74">&#39;coolwarm&#39;</span>, <span style="color:#ae81ff">10</span>), annot<span style="color:#f92672">=</span>True,fmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.2f&#39;</span>, vmin <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, vmax <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
+</code></pre></div><pre><code>          col0      col1      col2
+idx0  0.284978  0.629326  0.095141
+idx1  0.612321  0.684265  0.295009
+idx2  0.755716  0.475218  0.778032
+idx3  0.747498  0.978938  0.783364
+idx4  0.957747  0.182957  0.142502
+idx5  0.676027  0.123312  0.422607
+idx6  0.226960  0.391368  0.252925
+idx7  0.423927  0.119021  0.974749
+idx8  0.740804  0.538159  0.978040
+idx9  0.554380  0.868266  0.096229
+          col0      col1      col2
+col0  1.000000 -0.028344  0.229137
+col1 -0.028344  1.000000 -0.105724
+col2  0.229137 -0.105724  1.000000
+
+
+
+
+
+&lt;matplotlib.axes._subplots.AxesSubplot at 0x2d70ee94248&gt;
+</code></pre>
+<p><img src="output_8_2.png" alt="png"></p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3></h3>
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="../../../../2020/03/24/prob/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            確率分布
+        </div>
+    </a>
+    
+    
+    <a href="../../../../2020/03/21/hugo-issue/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">HUGO issue&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 A Hugo website
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</footer>
+
+</div>
+</body>
+</html>

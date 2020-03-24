@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>jupyter notebook と HUGO を連携する手順</title>
+      <link>/2020/03/24/test/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/24/test/</guid>
+      <description>jupyter notebook と HUGO を連携する手順 notebookに先ず下記を記載 --- title: test author: ~ date: &#39;9999-12-31&#39; slug: test categories: [資産運用] tags: [] Description: &#39;&#39; menu: &#39;&#39; --- 案１ notebookをipynbとしてロ</description>
+    </item>
+    
+    <item>
       <title>VIX CFD 価格調整額</title>
       <link>/2020/03/21/vix-cfd-adjusted-price/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
