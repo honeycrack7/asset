@@ -73,7 +73,7 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 自動補完設定</span>
+            <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 自動補完設定</span>
 <span style="color:#f92672">%</span>config IPCompleter<span style="color:#f92672">.</span>greedy<span style="color:#f92672">=</span>True
 </code></pre></div><h1 id="変動係数">変動係数</h1>
 <p>$$
@@ -81,24 +81,24 @@
 $$</p>
 <p>異なる重量や単位を持つデータのバラツキ具合を比較できる様にする係数</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statistics <span style="color:#f92672">import</span> mean, median, variance, stdev
-<span style="color:#75715e"># import numpy as np</span>
+<span style="color:#75715e"># import numpy as np</span>
 
 data <span style="color:#f92672">=</span> [<span style="color:#ae81ff">60</span>,<span style="color:#ae81ff">80</span>,<span style="color:#ae81ff">90</span>,<span style="color:#ae81ff">40</span>,<span style="color:#ae81ff">70</span>]
-<span style="color:#75715e"># data = np.array([100,200,300])</span>
+<span style="color:#75715e"># data = np.array([100,200,300])</span>
 
 m <span style="color:#f92672">=</span> mean(data)
 
 median <span style="color:#f92672">=</span> median(data)
 
-<span style="color:#75715e"># 偏差</span>
+<span style="color:#75715e"># 偏差</span>
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dev</span>(n):
     <span style="color:#66d9ef">return</span> n <span style="color:#f92672">-</span> m
 deviation <span style="color:#f92672">=</span> list(map(dev, data))
 
-<span style="color:#75715e"># 分散</span>
+<span style="color:#75715e"># 分散</span>
 variance <span style="color:#f92672">=</span> variance(data)
 
-<span style="color:#75715e"># 標準偏差</span>
+<span style="color:#75715e"># 標準偏差</span>
 stdev <span style="color:#f92672">=</span> stdev(data)
 
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;平均: {0:.2f}&#39;</span><span style="color:#f92672">.</span>format(m))
@@ -119,31 +119,31 @@ stdev <span style="color:#f92672">=</span> stdev(data)
 <h1 id="相関係数">相関係数</h1>
 <p>$$
 r_{xy} = \frac{\displaystyle \sum_{i = 1}^n (x_i - \overline{x})
-(y_i - \overline{y})}{\sqrt{\displaystyle \sum_{i = 1}^n
-(x_i - \overline{x})^2}\sqrt{\displaystyle \sum_{i = 1}^n
+(y_i - \overline{y})}{\sqrt{\displaystyle \sum_{i = 1}^n 
+(x_i - \overline{x})^2}\sqrt{\displaystyle \sum_{i = 1}^n 
 (y_i - \overline{y})^2}}
 $$</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 <span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<span style="color:#75715e"># テスト用のリストを作る</span>
+<span style="color:#75715e"># テスト用のリストを作る</span>
 l1<span style="color:#f92672">=</span>list(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
 l2<span style="color:#f92672">=</span>list(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
 
-<span style="color:#75715e"># 作ったlist</span>
+<span style="color:#75715e"># 作ったlist</span>
 <span style="color:#66d9ef">print</span>(l1)
 [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>]
 <span style="color:#66d9ef">print</span>(l2)
 [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>]
 
-<span style="color:#75715e"># リストをps.Seriesに変換</span>
+<span style="color:#75715e"># リストをps.Seriesに変換</span>
 s1<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>Series(l1)
 s2<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>Series(l2)
 
-<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
-res<span style="color:#f92672">=</span>s1<span style="color:#f92672">.</span>corr(s2)   <span style="color:#75715e"># numpy.float64 に格納される</span>
+<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
+res<span style="color:#f92672">=</span>s1<span style="color:#f92672">.</span>corr(s2)   <span style="color:#75715e"># numpy.float64 に格納される</span>
 
-<span style="color:#75715e"># 結果</span>
+<span style="color:#75715e"># 結果</span>
 <span style="color:#66d9ef">print</span>(res)
 
 </code></pre></div><pre><code>[5, 4, 1, 2, 4, 7, 3, 2, 7, 2]
@@ -153,21 +153,21 @@ res<span style="color:#f92672">=</span>s1<span style="color:#f92672">.</span>cor
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
 <span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
 
-<span style="color:#75715e"># テスト用のDataFrameを作る</span>
+<span style="color:#75715e"># テスト用のDataFrameを作る</span>
 df<span style="color:#f92672">=</span>pd<span style="color:#f92672">.</span>DataFrame(index<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;idx&#39;</span><span style="color:#f92672">+</span>str(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>)])
 <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
     df[<span style="color:#e6db74">&#39;col&#39;</span><span style="color:#f92672">+</span>str(i)]<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(<span style="color:#ae81ff">10</span>)
 
-<span style="color:#75715e"># 作ったdata frame</span>
+<span style="color:#75715e"># 作ったdata frame</span>
 <span style="color:#66d9ef">print</span>(df)
 
-<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
-res<span style="color:#f92672">=</span>df<span style="color:#f92672">.</span>corr()   <span style="color:#75715e"># pandasのDataFrameに格納される</span>
+<span style="color:#75715e"># pandasを使用してPearson&#39;s rを計算</span>
+res<span style="color:#f92672">=</span>df<span style="color:#f92672">.</span>corr()   <span style="color:#75715e"># pandasのDataFrameに格納される</span>
 
-<span style="color:#75715e"># 結果</span>
+<span style="color:#75715e"># 結果</span>
 <span style="color:#66d9ef">print</span>(res)
 
-<span style="color:#75715e"># ヒートマップ</span>
+<span style="color:#75715e"># ヒートマップ</span>
 <span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
 sns<span style="color:#f92672">.</span>heatmap(df<span style="color:#f92672">.</span>corr(), cmap<span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>color_palette(<span style="color:#e6db74">&#39;coolwarm&#39;</span>, <span style="color:#ae81ff">10</span>), annot<span style="color:#f92672">=</span>True,fmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.2f&#39;</span>, vmin <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, vmax <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>)
 </code></pre></div><pre><code>          col0      col1      col2
