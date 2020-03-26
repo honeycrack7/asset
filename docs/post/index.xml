@@ -6,10 +6,19 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://honeycrack7.github.io/asset/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nikkei225ブルvsベア</title>
+      <link>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</guid>
+      <description>$(function(){ $(&#34;img:not(.lb-image)&#34;).wrap(function() { return &#34;&#34;; }); }); datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
+    </item>
     
     <item>
       <title>jupyter notebook と HUGO を連携する手順</title>
@@ -63,6 +72,15 @@
       
       <guid>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</guid>
       <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://honeycrack7.github.io/asset/1/01/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/1/01/01/</guid>
+      <description></description>
     </item>
     
   </channel>

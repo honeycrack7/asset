@@ -1,0 +1,83 @@
+---
+title: nikkei225ブルvsベア
+author: ~
+date: '2020-03-26'
+slug: nikkei225bullvsbear
+categories: []
+tags: []
+Categories:
+  - 資産運用
+Description: ''
+Tags:
+menu: ''
+---
+```{js echo=FALSE}
+    $(function(){
+      $("img:not(.lb-image)").wrap(function() {
+        return "<a href='" + $(this).attr("src") + "' data-lightbox='" + $(this).attr("scr") + "'></a>";
+      });
+    });
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+dailyrtn <- fread("C:\\tmp\\data\\ETF\\dailyrtn.csv")
+dailyrtn$date <- as.Date(dailyrtn$date)
+dailyrtn$ticker <- as.factor(dailyrtn$ticker)
+dailyrtn$rtn <- round(dailyrtn$rtn, digits = 3)
+
+tmp1 <- dailyrtn %>%
+  filter(ticker %in% c("1321","1458","1459")) %>%
+  group_by(ticker) %>%
+  mutate(diff = close - dplyr::lag(close))
+
+tmp2 <- tmp1 %>%
+  group_by(ticker) %>%
+  do(head(., 1)) %>%
+  arrange(desc(date))
+tmp2 <- c(tmp2[1,1])
+
+tmp1 <- tmp1 %>%
+  filter(date >= tmp2)
+```
+
+```{r}
+datatable(tmp1,
+        filter = 'top',
+        style = 'bootstrap',
+        class = 'table-bordered table-condensed',
+#        class = 'cell-border stripe',
+        extensions = 'ColReorder',
+        options = list(dom = 'Rlfrtip',
+                       colReorder = list(realtime = TRUE),
+                       buttons = I('colvis'),
+                       scrollX = TRUE,
+                       scrollCollapse = TRUE
+                       )
+        )
+```
+
+
+```{r}
+ggplot(tmp1, aes(x = date, y = close, color = ticker)) +
+  geom_line()
+```
+
+## リターン額のヒストグラム・確率密度
+```{r}
+ggplot(tmp1, aes(x = diff, fill = ticker,)) + 
+  geom_histogram(position = "identity", alpha = 0.5)
+ggplot(tmp1, aes(x = diff, color = ticker,)) + 
+  geom_density()
+
+```
+
+## リターン率のヒストグラム・確率密度
+```{r}
+ggplot(tmp1, aes(x = rtn, fill = ticker,)) + 
+  geom_histogram(position = "identity", alpha = 0.5)
+ggplot(tmp1, aes(x = rtn, color = ticker,)) + 
+  geom_density()
+```
+上記の通りリターン"率"で比較するとブルとベアでほとんど差は無いので  
+単純にベアの購入数は、ブル価格／ベア価格で良い。
+

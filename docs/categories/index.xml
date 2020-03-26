@@ -6,10 +6,19 @@
     <description>Recent content in Categories on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://honeycrack7.github.io/asset/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>資産運用</title>
+      <link>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>統計</title>
@@ -21,20 +30,29 @@
     </item>
     
     <item>
-      <title>資産運用</title>
-      <link>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
-      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>HUGO</title>
       <link>https://honeycrack7.github.io/asset/categories/hugo/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://honeycrack7.github.io/asset/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://honeycrack7.github.io/asset/categories/development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/categories/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://honeycrack7.github.io/asset/categories/golang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/categories/golang/</guid>
       <description></description>
     </item>
     
