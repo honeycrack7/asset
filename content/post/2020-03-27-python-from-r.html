@@ -1,0 +1,32 @@
+---
+title: python from R
+author: ~
+date: '2020-03-27'
+slug: python-from-r
+categories: []
+tags: []
+Categories:
+  - R
+  - python
+Description: ''
+Tags:
+menu: ''
+---
+
+
+
+<pre class="r"><code>library(reticulate)</code></pre>
+<pre><code>## Warning: package &#39;reticulate&#39; was built under R version 3.6.3</code></pre>
+<pre class="r"><code>repl_python()</code></pre>
+<pre><code>## Python 3.6.10 (C:/Users/Administrator/AppData/Local/r-miniconda/envs/r-reticulate/python.exe)
+## Reticulate 1.14 REPL -- A Python interpreter in R.</code></pre>
+<pre><code>## exit</code></pre>
+<pre class="python"><code>def fib(n):
+  a, b = 1, 1
+  for i in range(n-1):
+    a,b = b, a + b
+  return a
+  
+n = 10
+print(n)</code></pre>
+<pre><code>## 10</code></pre>

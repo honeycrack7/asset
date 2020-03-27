@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>jupyter notebook と HUGO を連携する手順 // A Hugo website</title>
+    <title>python from R // A Hugo website</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,11 +10,11 @@
     <meta name="description" content="A website built through Hugo and blogdown.">
     
 
-        <meta property="og:title" content="jupyter notebook と HUGO を連携する手順" />
+        <meta property="og:title" content="python from R" />
     <meta property="og:description" content="A website built through Hugo and blogdown." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja" />
-    <meta property="og:url" content="/2020/03/24/test/" />
+    <meta property="og:url" content="/2020/03/27/python-from-r/" />
     
 
     <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -52,12 +52,12 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">jupyter notebook と HUGO を連携する手順</h1>
+            <h1 class="article-title" itemprop="name">python from R</h1>
         </header>
         
         <div class="article-meta">
-            <a href="../../../../2020/03/24/test/" class="article-date">
-                <time datetime='2020-03-24T00:00:00.000&#43;00:00' itemprop="datePublished">2020-03-24</time>
+            <a href="../../../../2020/03/27/python-from-r/" class="article-date">
+                <time datetime='2020-03-27T00:00:00.000&#43;00:00' itemprop="datePublished">2020-03-27</time>
             </a>
             
             
@@ -65,7 +65,12 @@
                 <div class="article-category">
                     
                     
-                    <a class="article-category-link" href="//categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8">資産運用</a>
+                    <a class="article-category-link" href="//categories/r">R</a>
+                    
+                    
+                    <span>&gt;</span>
+                    
+                    <a class="article-category-link" href="//categories/python">python</a>
                     
                 </div>
             </div>
@@ -73,42 +78,28 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <h1 id="jupyter-notebook-と-hugo-を連携する手順">jupyter notebook と HUGO を連携する手順</h1>
-<p>notebookに先ず下記を記載</p>
-<pre><code>---
-title: test
-author: ~
-date: '9999-12-31'
-slug: test
-categories: [資産運用]
-tags: []
-Description: ''
-menu: ''
----
-</code></pre><h2 id="案１">案１</h2>
-<p>notebookをipynbとしてローカルに保存
-anacondaからterminalを起動する
-nbconvertでmdに変換する</p>
-<pre><code>jupyter nbconvert --to markdown Untitled.ipynb
-</code></pre><p>.mbをHUGO用ディレクトリへコピー＆build_site()</p>
-<h2 id="案２">案２</h2>
-<p>notebookをmbとしてローカルに保存
-.mbをHUGO用ディレクトリへコピー＆build_site()</p>
-<p>どちらも面倒だな。。。</p>
+            
+
+
+<pre class="r"><code>library(reticulate)</code></pre>
+<pre><code>## Warning: package &#39;reticulate&#39; was built under R version 3.6.3</code></pre>
+<pre class="r"><code>repl_python()</code></pre>
+<pre><code>## Python 3.6.10 (C:/Users/Administrator/AppData/Local/r-miniconda/envs/r-reticulate/python.exe)
+## Reticulate 1.14 REPL -- A Python interpreter in R.</code></pre>
+<pre><code>## exit</code></pre>
+<pre class="python"><code>def fib(n):
+  a, b = 1, 1
+  for i in range(n-1):
+    a,b = b, a + b
+  return a
+  
+n = 10
+print(n)</code></pre>
+<pre><code>## 10</code></pre>
 
         </div>
 
         
-        
-        <div class="article-toc" >
-            <h3></h3>
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#案１">案１</a></li>
-    <li><a href="#案２">案２</a></li>
-  </ul>
-</nav>
-        </div>
         
         
 
@@ -119,15 +110,15 @@ nbconvertでmdに変換する</p>
     </div>
     <nav id="article-nav">
     
-    <a href="../../../../2020/03/26/nikkei225bullvsbear/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="../../../../9999/12/31/daily-unyo/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            nikkei225ブルvsベア
+            daily_unyo
         </div>
     </a>
     
     
-    <a href="../../../../2020/03/24/prob/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">確率分布&nbsp;<span>&gt;</span></div>
+    <a href="../../../../2020/03/26/nikkei225bullvsbear/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">nikkei225ブルvsベア&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>
