@@ -2,75 +2,75 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Hugo website</title>
-    <link>/categories/</link>
+    <link>https://honeycrack7.github.io/asset/categories/</link>
     <description>Recent content in Categories on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://honeycrack7.github.io/asset/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>資産運用</title>
-      <link>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
-      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>python</title>
-      <link>/categories/python/</link>
+      <link>https://honeycrack7.github.io/asset/categories/python/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/python/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/categories/r/</link>
+      <link>https://honeycrack7.github.io/asset/categories/r/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>資産運用</title>
+      <link>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>統計</title>
-      <link>/categories/%E7%B5%B1%E8%A8%88/</link>
+      <link>https://honeycrack7.github.io/asset/categories/%E7%B5%B1%E8%A8%88/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/%E7%B5%B1%E8%A8%88/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/%E7%B5%B1%E8%A8%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>HUGO</title>
-      <link>/categories/hugo/</link>
+      <link>https://honeycrack7.github.io/asset/categories/hugo/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/categories/hugo/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>/categories/development/</link>
+      <link>https://honeycrack7.github.io/asset/categories/development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/categories/development/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>/categories/golang/</link>
+      <link>https://honeycrack7.github.io/asset/categories/golang/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/categories/golang/</guid>
+      <guid>https://honeycrack7.github.io/asset/categories/golang/</guid>
       <description></description>
     </item>
     

@@ -2,48 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>資産運用 on A Hugo website</title>
-    <link>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
+    <link>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</link>
     <description>Recent content in 資産運用 on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>daily_unyo</title>
-      <link>/9999/12/31/daily-unyo/</link>
-      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
-      
-      <guid>/9999/12/31/daily-unyo/</guid>
-      <description>±2σ zandaka</description>
-    </item>
     
     <item>
       <title>nikkei225ブルvsベア</title>
-      <link>/2020/03/26/nikkei225bullvsbear/</link>
+      <link>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</link>
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/03/26/nikkei225bullvsbear/</guid>
+      <guid>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</guid>
       <description>$(function(){ $(&#34;img:not(.lb-image)&#34;).wrap(function() { return &#34;&#34;; }); }); datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
     <item>
       <title>jupyter notebook と HUGO を連携する手順</title>
-      <link>/2020/03/24/test/</link>
+      <link>https://honeycrack7.github.io/asset/2020/03/24/test/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/03/24/test/</guid>
+      <guid>https://honeycrack7.github.io/asset/2020/03/24/test/</guid>
       <description>jupyter notebook と HUGO を連携する手順 notebookに先ず下記を記載 --- title: test author: ~ date: &#39;9999-12-31&#39; slug: test categories: [資産運用] tags: [] Description: &#39;&#39; menu: &#39;&#39; --- 案１ notebookをipynbとしてロ</description>
     </item>
     
     <item>
       <title>VIX CFD 価格調整額</title>
-      <link>/2020/03/21/vix-cfd-adjusted-price/</link>
+      <link>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/03/21/vix-cfd-adjusted-price/</guid>
+      <guid>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</guid>
       <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
