@@ -39,6 +39,20 @@ tmp2 <- melt(tmp1, id.vars = c("date"))
 ```
 
 ```{r}
+datatable(tmp1,
+        filter = 'top',
+        style = 'bootstrap',
+        class = 'table-bordered table-condensed',
+#        class = 'cell-border stripe',
+        extensions = 'ColReorder',
+        options = list(dom = 'Rlfrtip',
+                       colReorder = list(realtime = TRUE),
+                       buttons = I('colvis'),
+                       scrollX = TRUE,
+                       scrollCollapse = TRUE
+                       )
+        )
+
 ggplotly(
   ggplot(tmp2, aes(x = date, y = value, color = variable)) +
     geom_line()
