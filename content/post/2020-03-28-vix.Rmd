@@ -93,7 +93,7 @@ ggplot() +
 
 # VIXとS&P
 ```{r}
-a <- ggplot(gspc, aes(x = date, y = close)) +
+a <- ggplot(subset(gspc, date >= min(vix$date)), aes(x = date, y = close)) +
   geom_line() +
   labs(y = "S&P")
 b <- ggplot(vix, aes(x = date, y = close, color = "red")) +
