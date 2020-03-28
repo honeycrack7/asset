@@ -31,73 +31,91 @@ output:
 # 前処理
 vix <- getSymbols("^VIX",src="yahoo", from="1900-01-03", to=Sys.Date(), auto.assign=FALSE)
 vix <- data.frame(index(vix),coredata(vix))
-colnames(vix) <- c("date","open","high","low","close","volume","adjusted")
+colnames(vix) <- c("date","open","high","low","vix","volume","adjusted")
 write.csv(vix,file = "c:\\tmp\\data\\VIX\\VIX.csv",row.names = F)
 
 gspc <- getSymbols("^gspc",src="yahoo", from="1900-01-03", to=Sys.Date(), auto.assign=FALSE)
 gspc <- data.frame(index(gspc),coredata(gspc))
-colnames(gspc) <- c("date","open","high","low","close","volume","adjusted")
+colnames(gspc) <- c("date","open","high","low","gspc","volume","adjusted")
 write.csv(gspc,file = "c:\\tmp\\data\\gspc\\gspc.csv",row.names = F)
+
+tmp1 <- merge(vix[,c(1,5)], gspc[,c(1,5)], by.x = "date")
 ```
 
 # 使用データ
 ```{r}
-headTail(vix)
-headTail(gspc)
+headTail(tmp1)
 ```
 
 # VIXの転換点をポイントしたい（途中）
 
 ```{r}
-knitr::opts_chunk$set(comment='', message=FALSE, warning=FALSE, error=FALSE, 
-                      eval=TRUE, echo=TRUE, include=TRUE)
-
-
-vix$date <- as.Date(vix$date)
-
-rollapp <- function(x, k, fun)
-{
-  w <- k/2
-  sapply(seq_len(length(x)), function(i){
-    index_s <- max(i-w, 1)
-    index_e <- min(i+w, length(x))
-    middle <- index_s + i-w
-    fun(1+i-index_s, x[index_s:index_e])
-  })
-}
-
-x <- vix$close
-max_point <- rollapp(x, 74, function(i, x){x[i]==max(x)})
-max_point <- replace(max_point, is.na(max_point), FALSE)
-
-vix <- transform(vix, point = max_point)
-
-ggplotly(
-ggplot() +
-  layer(  #軸の範囲を指定。breaks=seq(下限値-1, 上限値+1, 区切り単位)
-    data=vix, 
-    mapping=aes(x=date, y=close), 
-    geom="line", 
-    stat="identity",#データの統計処理方法を指定 
-    position="identity" #データの表示位置
-  ) +
-  layer(
-    data=subset(vix, vix$point == "TRUE"), 
-    mapping=aes(x=date, y=close), 
-    geom="point", 
-    stat="identity", 
-    position="identity"
-  )
-)
+# knitr::opts_chunk$set(comment='', message=FALSE, warning=FALSE, error=FALSE, 
+#                       eval=TRUE, echo=TRUE, include=TRUE)
+# 
+# 
+# vix$date <- as.Date(vix$date)
+# 
+# rollapp <- function(x, k, fun)
+# {
+#   w <- k/2
+#   sapply(seq_len(length(x)), function(i){
+#     index_s <- max(i-w, 1)
+#     index_e <- min(i+w, length(x))
+#     middle <- index_s + i-w
+#     fun(1+i-index_s, x[index_s:index_e])
+#   })
+# }
+# 
+# x <- vix$close
+# max_point <- rollapp(x, 74, function(i, x){x[i]==max(x)})
+# max_point <- replace(max_point, is.na(max_point), FALSE)
+# 
+# vix <- transform(vix, point = max_point)
+# 
+# ggplotly(
+# ggplot() +
+#   layer(  #軸の範囲を指定。breaks=seq(下限値-1, 上限値+1, 区切り単位)
+#     data=vix, 
+#     mapping=aes(x=date, y=close), 
+#     geom="line", 
+#     stat="identity",#データの統計処理方法を指定 
+#     position="identity" #データの表示位置
+#   ) +
+#   layer(
+#     data=subset(vix, vix$point == "TRUE"), 
+#     mapping=aes(x=date, y=close), 
+#     geom="point", 
+#     stat="identity", 
+#     position="identity"
+#   )
+# )
 ```
 
 # VIXとS&P
 ```{r}
-a <- ggplot(subset(gspc, date >= min(vix$date)), aes(x = date, y = close)) +
+a <- ggplot(subset(gspc, date >= min(vix$date)), aes(x = date, y = gspc)) +
   geom_line() +
   labs(y = "S&P")
-b <- ggplot(vix, aes(x = date, y = close, color = "red")) +
+b <- ggplot(vix, aes(x = date, y = vix, color = "red")) +
   geom_line() +
   labs(y = "VIX")
 ggdual_axis(a, b, 270)
+```
+
+# VIXとS&P改
+```{r}
+tmp1 <- tmp1 %>%
+  mutate(gspc.scaled = scales::rescale(x = gspc, to = c(min(tmp1$vix), max(tmp1$vix))))
+ggplotly(
+  ggplot(tmp1, aes(x = date)) +
+    geom_line(aes(y = vix)) +
+    geom_line(aes(y = gspc.scaled, color = "red")) +
+    scale_y_continuous(sec.axis = sec_axis(~scales::rescale(., to = range(tmp1$gspc)),
+                                           name = "S&P")
+                       ) +
+    theme(legend.position = "none") +
+    scale_size_manual(values = c(0.1, 1))
+)
+#ggplotlyかますと右軸のラベルが表示されない問題
 ```
