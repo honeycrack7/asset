@@ -9,6 +9,6 @@ Description: ''
 menu: ''
 ---
 
-[±2σ](./+-2sigma_ver1.html)  
-[zandaka](./zandaka.html)
+[±2σ](./sigma.html)  
+[zandaka](./TickerSelection.html)
  

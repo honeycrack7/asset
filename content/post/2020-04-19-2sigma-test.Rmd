@@ -1,0 +1,200 @@
+---
+title: 2sigma test
+author: ~
+date: "`r Sys.Date()`"
+slug: 2sigma_test
+categories: 
+tags: 
+Categories:
+  - 
+Tags:
+  - 
+Description: ''
+menu: ''
+output:
+  blogdown::html_page:
+    number_sections: true
+    toc: true
+    css: custom.css
+---
+
+-2σで買う戦略は正しいのか
+
+```{r eval=TRUE, echo=FALSE}
+daily1 <- fread("C:\\tmp\\data\\ETF\\etf_daily.csv")
+daily1$date <- as.Date(daily1$date)
+etf_etn_REIT_all <- fread("C:\\tmp\\data\\ETF\\kokunaiETF\\etf_etn_REIT_all.csv", header = T)
+kokunaiETF <- etf_etn_REIT_all$ticker
+```
+
+
+# -2σとn日後のリターン計算
+```{r}
+s00 <- daily1 %>%
+  filter(ticker %in% kokunaiETF) %>%
+  group_by(ticker) %>%
+  mutate(return = close / dplyr::lag(close, n = 1) - 1) %>%
+  filter(return > -0.5, return < 0.5) %>%
+  mutate(sigma2 = quantile(na.omit(return), c(0.02275))) %>%
+  mutate(buy = ifelse(return < sigma2, "buy", "-")) %>%
+  mutate(lead1 = dplyr::lead(close, n = 1) / close - 1) %>%
+  filter(lead1 > -0.5, lead1 < 0.5) %>%
+  mutate(lead5 = dplyr::lead(close, n = 5) / close - 1) %>%
+  filter(lead5 > -0.5, lead5 < 0.5) %>%
+  mutate(lead10 = dplyr::lead(close, n = 10) / close - 1) %>%
+  filter(lead10 > -0.5, lead10 < 0.5) %>%
+  mutate(lead20 = dplyr::lead(close, n = 20) / close - 1) %>%
+  filter(lead20 > -0.5, lead20 < 0.5) %>%
+  mutate(lead60 = dplyr::lead(close, n = 60) / close - 1) %>%
+  filter(lead60 > -0.5, lead60 < 0.5) %>%
+  mutate(lead120 = dplyr::lead(close, n = 120) / close - 1) %>%
+  filter(lead120 > -0.5, lead120 < 0.5) %>%
+  mutate(lead240 = dplyr::lead(close, n = 240) / close - 1) %>%
+  filter(lead240 > -0.5, lead240 < 0.5)
+
+s00 %>%
+  ungroup() %>%
+  group_by(buy) %>%
+  summarize(count = n())
+```
+
+```{r}
+ggplot(subset(s00, s00$buy == "buy"), aes(x = lead1)) + geom_histogram()
+```
+
+# リターン平均の検定  
+
+```{r}
+s01 <- melt(s00,
+            id.vars = c("ticker", "buy"),
+            measure.vars = c("lead1", "lead5", "lead10", "lead20", "lead60", "lead120", "lead240")
+            )
+t_test_fun <- function(vars, i){
+  browser()
+  result <- data.frame(matrix(rep(NA, 4), nrow=1))[numeric(0), ]
+  colnames(result) <- c("tar_col", "student.t", "Welch", "wilcox")
+  
+  data1 <- s01 %>%
+    filter(buy == "buy",
+           variable == vars)
+  data2 <- s01 %>%
+    filter(buy == "-",
+           variable == vars)
+  
+  student <- t.test(data1$value, data2$value, var.equal = T)
+  result[i, 1] <- vars
+  result[i, 2] <- student$p.value
+  return(result)
+}
+
+result <- data.frame(matrix(rep(NA, 4), nrow=1))[numeric(0), ]
+colnames(result) <- c("Ndayafter", "student.t", "Welch", "wilcox")
+result_data <- data.frame(matrix(rep(NA, 4), nrow=1))[numeric(0), ]
+colnames(result_data) <- c("ticker", "buy", "variable", "value")
+
+vars <- c("lead1", "lead5", "lead10", "lead20", "lead60", "lead120", "lead240")
+for(i in 1:length(vars)){
+  data1 <- s01 %>%
+    filter(buy == "buy",
+           variable == vars[i])
+  result_data <- rbind(result_data, data1)
+  data2 <- s01 %>%
+    filter(buy == "-",
+           variable == vars[i]) %>%
+    sample_n(size = nrow(data1))
+  result_data <- rbind(result_data, data2)
+  
+  test <- t.test(data1$value, data2$value, var.equal = T)
+  result[i, 1] <- vars[i]
+  result[i, 2] <- test$p.value
+  
+  test <- t.test(data1$value, data2$value, var.equal = F)
+  result[i, 1] <- vars[i]
+  result[i, 3] <- test$p.value
+
+  test <- wilcox.test(data1$value, data2$value, var.equal = F)
+  result[i, 1] <- vars[i]
+  result[i, 4] <- test$p.value
+}
+result
+```
+
+lead60(60日後)まではp値が0.05以下なので-2σで購入した場合のリターンとそうでないリターンには差があると言える  
+
+# グラフ  
+-2σで購入した場合とそうでない場合のリターン（density）を日毎にグラフ表示  
+```{r}
+for(i in 1:length(vars)){
+  s02 <- s01 %>%
+    filter(variable == vars[i])
+  p <- ggplotly(
+    ggplot(s02, aes(x = value, color = buy)) +
+      geom_density(stat = "density") +
+      labs(title = vars[i])
+    )
+  print(p)
+}
+```
+
+```{r echo=FALSE, results='asis', fig.keep='all', message = FALSE, warning = FALSE}
+
+# Build list of outputs
+output <- list()
+for(i in 1:length(vars)){
+
+  # Header for iteration
+  txt <- paste0("#Iteration ", i)
+  output[[length(output) + 1L]] <- txt
+
+  # Plot
+  s02 <- s01 %>%
+    filter(variable == vars[i])
+  plt <- ggplotly(
+    ggplot(s02, aes(x = value, color = buy)) +
+      geom_density(stat = "density") +
+      labs(title = vars[i])
+    )
+
+  output[[length(output) + 1L]] <- plt
+}
+
+# Render the outputs
+for(j in 1:length(output)){
+  x <- output[[j]]
+
+  if(inherits(x, "character")){
+    cat("\n")
+    cat(x)
+  } else if(inherits(x, "knitr_kable")){
+    cat("\n")
+    print(x)
+  }
+  else {
+    # print the html piece of the htmlwidgets
+    cat("\n")
+    cat(htmltools::renderTags(as.widget(x))$html)
+  }
+}
+```
+
+```{r echo=FALSE, messages=FALSE, warning=FALSE}
+# Attach the Dependencies since they do not get included with renderTags(...)$html
+deps <- lapply(
+  Filter(f = function(x){inherits(x,"htmlwidget")}, x = output),
+  function(hw){
+    htmltools::renderTags(hw)$dependencies
+  }
+)
+htmltools::attachDependencies(x = htmltools::tagList(), value = unlist(deps,recursive=FALSE))
+```
+
+# グラフ  
+-2σで購入した場合、n日後リターンのdensity
+```{r}
+  s02 <- s01 %>%
+    filter(buy == "buy")
+  ggplotly(
+    ggplot(s02, aes(x = value, color = variable)) +
+      geom_density(stat = "density")
+    )
+```
