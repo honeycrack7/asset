@@ -3,142 +3,147 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/04/24/2sigma_test/</loc>
+    <loc>/categories/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/9999/12/31/daily-unyo/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</loc>
+    <lastmod>9999-12-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/04/24/2sigma_test/</loc>
     <lastmod>2020-04-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/post/</loc>
-    <lastmod>2020-04-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/categories/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/development/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/golang/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/</loc>
+    <loc>/tags/vix/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/vix/</loc>
+    <loc>/2020/03/28/vix/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/28/vix/</loc>
+    <loc>/2020/03/28/vix-vixcfd/</loc>
     <lastmod>2020-03-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/28/vix-vixcfd/</loc>
-    <lastmod>2020-03-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/categories/%E8%B3%87%E7%94%A3%E9%81%8B%E7%94%A8/</loc>
-    <lastmod>2020-03-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://honeycrack7.github.io/asset/categories/python/</loc>
+    <loc>/categories/python/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/27/python-from-r/</loc>
+    <loc>/2020/03/27/python-from-r/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/27/prob/</loc>
+    <loc>/2020/03/27/prob/</loc>
     <lastmod>2020-03-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</loc>
+    <loc>/2020/03/26/nikkei225bullvsbear/</loc>
     <lastmod>2020-03-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/24/test/</loc>
+    <loc>/2020/03/24/test/</loc>
     <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/24/prob/</loc>
+    <loc>/2020/03/24/prob/</loc>
     <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/%E7%B5%B1%E8%A8%88/</loc>
+    <loc>/categories/%E7%B5%B1%E8%A8%88/</loc>
     <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/24/statistics/</loc>
+    <loc>/2020/03/24/statistics/</loc>
     <lastmod>2020-03-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/tags/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/categories/hugo/</loc>
+    <loc>/categories/hugo/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/21/hugo-issue/</loc>
+    <loc>/2020/03/21/hugo-issue/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/21/optionpremium/</loc>
+    <loc>/2020/03/21/optionpremium/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</loc>
+    <loc>/2020/03/21/vix-cfd-adjusted-price/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/</loc>
+    <loc>/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://honeycrack7.github.io/asset/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   

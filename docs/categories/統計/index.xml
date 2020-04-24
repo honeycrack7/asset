@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>統計 on A Hugo website</title>
-    <link>https://honeycrack7.github.io/asset/categories/%E7%B5%B1%E8%A8%88/</link>
+    <link>/categories/%E7%B5%B1%E8%A8%88/</link>
     <description>Recent content in 統計 on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
     <lastBuildDate>Tue, 24 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://honeycrack7.github.io/asset/categories/%E7%B5%B1%E8%A8%88/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/%E7%B5%B1%E8%A8%88/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>確率分布</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/24/prob/</link>
+      <link>/2020/03/24/prob/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/24/prob/</guid>
+      <guid>/2020/03/24/prob/</guid>
       <description># 自動補完設定 %config IPCompleter.greedy=True 標準化 平均を０、標準偏差（分散）を１に変換すること $$ x \longmapsto \frac{x - \overline{x}}{s} $$ ちなみに偏差値は標準化変量の平均を50、標準偏差を10に修</description>
     </item>
     
     <item>
       <title>統計基礎</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/24/statistics/</link>
+      <link>/2020/03/24/statistics/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/24/statistics/</guid>
+      <guid>/2020/03/24/statistics/</guid>
       <description># 自動補完設定 %config IPCompleter.greedy=True 変動係数 $$ 変動係数 C.V.=\frac{s}{\overline{X}} $$ 異なる重量や単位を持つデータのバラツキ具合を比較できる様にする係数 from statistics import mean, median, variance, stdev # import numpy as np data = [60,80,90,40,70] # data</description>
     </item>
     

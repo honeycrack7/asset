@@ -10,5 +10,6 @@ menu: ''
 ---
 
 [±2σ](./sigma.html)  
-[zandaka](./TickerSelection.html)
+[TickerSelection](./TickerSelection.html)
+ 
  

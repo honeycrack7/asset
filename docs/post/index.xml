@@ -2,120 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Hugo website</title>
-    <link>https://honeycrack7.github.io/asset/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 24 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Dec 9999 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://honeycrack7.github.io/asset/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>daily_unyo</title>
+      <link>/9999/12/31/daily-unyo/</link>
+      <pubDate>Fri, 31 Dec 9999 00:00:00 +0000</pubDate>
+      
+      <guid>/9999/12/31/daily-unyo/</guid>
+      <description>±2σ TickerSelection</description>
+    </item>
+    
+    <item>
       <title>2sigma test</title>
-      <link>https://honeycrack7.github.io/asset/2020/04/24/2sigma_test/</link>
+      <link>/2020/04/24/2sigma_test/</link>
       <pubDate>Fri, 24 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/04/24/2sigma_test/</guid>
+      <guid>/2020/04/24/2sigma_test/</guid>
       <description>1 -2σとn日後のリターン計算 2 リターン平均の検定 3 グラフ 4 グラフ -2σで買う戦略は正しいのか 1 -2σとn日後のリターン計算 s00 &amp;lt;- daily1 %&amp;gt;% filter(ticker %in% kokunaiETF) %&amp;gt;%</description>
     </item>
     
     <item>
       <title>VIX</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/28/vix/</link>
+      <link>/2020/03/28/vix/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/28/vix/</guid>
+      <guid>/2020/03/28/vix/</guid>
       <description>使用データ headTail(tmp1) ## date vix gspc ## 1 1990-01-02 17.24 359.69 ## 2 1990-01-03 18.19 358.76 ## 3 1990-01-04 19.22 355.67 ## 4 1990-01-05 20.11 352.2 ## ... &amp;lt;NA&amp;gt; ... ... ## 7616 2020-03-24 61.67 2447.33 ## 7617 2020-03-25 63.95 2475.56 ## 7618 2020-03-26 61 2630.07 ## 7619 2020-03-27 65.54 2541.47 VIXの転換点をポイントしたい</description>
     </item>
     
     <item>
       <title>VIXとVIX(CFD)</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/28/vix-vixcfd/</link>
+      <link>/2020/03/28/vix-vixcfd/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/28/vix-vixcfd/</guid>
+      <guid>/2020/03/28/vix-vixcfd/</guid>
       <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
     <item>
       <title>python from R</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/27/python-from-r/</link>
+      <link>/2020/03/27/python-from-r/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/27/python-from-r/</guid>
+      <guid>/2020/03/27/python-from-r/</guid>
       <description> library(reticulate) ## Warning: package &amp;#39;reticulate&amp;#39; was built under R version 3.6.3 repl_python() ## Python 3.6.10 (C:/Users/Administrator/AppData/Local/r-miniconda/envs/r-reticulate/python.exe) ## Reticulate 1.14 REPL -- A Python interpreter in R. ## exit def fib(n): a, b = 1, 1 for i in range(n-1): a,b = b, a + b return a n = 10 print(n) ## 10 </description>
     </item>
     
     <item>
       <title>ポアソン分布</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/27/prob/</link>
+      <link>/2020/03/27/prob/</link>
       <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/27/prob/</guid>
+      <guid>/2020/03/27/prob/</guid>
       <description>ポアソン分布 ある一定の時間や空間において、平均でλ回発生する事象がｘ回発生する確率。地震発生確率、サッカーの得点確率、保険料の算出、食中毒の</description>
     </item>
     
     <item>
       <title>nikkei225ブルvsベア</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</link>
+      <link>/2020/03/26/nikkei225bullvsbear/</link>
       <pubDate>Thu, 26 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/26/nikkei225bullvsbear/</guid>
+      <guid>/2020/03/26/nikkei225bullvsbear/</guid>
       <description>$(function(){ $(&#34;img:not(.lb-image)&#34;).wrap(function() { return &#34;&#34;; }); }); datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
     <item>
       <title>jupyter notebook と HUGO を連携する手順</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/24/test/</link>
+      <link>/2020/03/24/test/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/24/test/</guid>
+      <guid>/2020/03/24/test/</guid>
       <description>jupyter notebook と HUGO を連携する手順 notebookに先ず下記を記載 --- title: test author: ~ date: &#39;9999-12-31&#39; slug: test categories: [資産運用] tags: [] Description: &#39;&#39; menu: &#39;&#39; --- 案１ notebookをipynbとしてロ</description>
     </item>
     
     <item>
       <title>確率分布</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/24/prob/</link>
+      <link>/2020/03/24/prob/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/24/prob/</guid>
+      <guid>/2020/03/24/prob/</guid>
       <description># 自動補完設定 %config IPCompleter.greedy=True 標準化 平均を０、標準偏差（分散）を１に変換すること $$ x \longmapsto \frac{x - \overline{x}}{s} $$ ちなみに偏差値は標準化変量の平均を50、標準偏差を10に修</description>
     </item>
     
     <item>
       <title>統計基礎</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/24/statistics/</link>
+      <link>/2020/03/24/statistics/</link>
       <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/24/statistics/</guid>
+      <guid>/2020/03/24/statistics/</guid>
       <description># 自動補完設定 %config IPCompleter.greedy=True 変動係数 $$ 変動係数 C.V.=\frac{s}{\overline{X}} $$ 異なる重量や単位を持つデータのバラツキ具合を比較できる様にする係数 from statistics import mean, median, variance, stdev # import numpy as np data = [60,80,90,40,70] # data</description>
     </item>
     
     <item>
       <title>HUGO issue</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/21/hugo-issue/</link>
+      <link>/2020/03/21/hugo-issue/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/21/hugo-issue/</guid>
+      <guid>/2020/03/21/hugo-issue/</guid>
       <description>hugo-theme-minosというかHugoのissue 投稿手順 options(blogdown.rmd=TRUE) または options(blogdown.ext = ‘.Rmd’) 数式が表示できない themes &amp;gt; hugo-theme-minos &amp;gt; layouts &amp;gt; partials &amp;gt; footer.html に下記★を</description>
     </item>
     
     <item>
       <title>OptionPremium</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/21/optionpremium/</link>
+      <link>/2020/03/21/optionpremium/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/21/optionpremium/</guid>
+      <guid>/2020/03/21/optionpremium/</guid>
       <description>プットオプションを月にいくら買えばよいかを検討する ブラックショールズモデルの一般的には変数は以下 S：株価 σ：ボラティリティ r：無リスク金利 q</description>
     </item>
     
     <item>
       <title>VIX CFD 価格調整額</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</link>
+      <link>/2020/03/21/vix-cfd-adjusted-price/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/21/vix-cfd-adjusted-price/</guid>
+      <guid>/2020/03/21/vix-cfd-adjusted-price/</guid>
       <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
