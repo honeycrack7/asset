@@ -1,17 +1,15 @@
 ---
 title: VIX
 author: ~
-date: '2020-03-28'
+date: "`r Sys.time()`"
 slug: vix
 categories: []
 tags: []
 Categories:
-  - Development
-  - Golang
+  - VIX
 Description: ''
 Tags:
-  - development
-  - golang
+  - VIX
 menu: ''
 output:
   html_document:
