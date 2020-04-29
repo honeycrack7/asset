@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VIX on A Hugo website</title>
+    <link>/categories/vix/</link>
+    <description>Recent content in VIX on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 29 Apr 2020 17:27:08 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/vix/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VIX</title>
+      <link>/2020/04/29/vix/</link>
+      <pubDate>Wed, 29 Apr 2020 17:27:08 +0000</pubDate>
+      
+      <guid>/2020/04/29/vix/</guid>
+      <description>使用データ headTail(tmp1) ## date vix gspc ## 1 1990-01-02 17.24 359.69 ## 2 1990-01-03 18.19 358.76 ## 3 1990-01-04 19.22 355.67 ## 4 1990-01-05 20.11 352.2 ## ... &amp;lt;NA&amp;gt; ... ... ## 7637 2020-04-23 41.38 2797.8 ## 7638 2020-04-24 35.93 2836.74 ## 7639 2020-04-27 33.29 2878.48 ## 7640 2020-04-28 33.57 2863.39 VIXの転換点をポイントしたい</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,21 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VIX on A Hugo website</title>
-    <link>https://honeycrack7.github.io/asset/tags/vix/</link>
+    <link>/tags/vix/</link>
     <description>Recent content in VIX on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 28 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2020 17:27:08 +0000</lastBuildDate>
     
-	<atom:link href="https://honeycrack7.github.io/asset/tags/vix/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/vix/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>VIX</title>
+      <link>/2020/04/29/vix/</link>
+      <pubDate>Wed, 29 Apr 2020 17:27:08 +0000</pubDate>
+      
+      <guid>/2020/04/29/vix/</guid>
+      <description>使用データ headTail(tmp1) ## date vix gspc ## 1 1990-01-02 17.24 359.69 ## 2 1990-01-03 18.19 358.76 ## 3 1990-01-04 19.22 355.67 ## 4 1990-01-05 20.11 352.2 ## ... &amp;lt;NA&amp;gt; ... ... ## 7637 2020-04-23 41.38 2797.8 ## 7638 2020-04-24 35.93 2836.74 ## 7639 2020-04-27 33.29 2878.48 ## 7640 2020-04-28 33.57 2863.39 VIXの転換点をポイントしたい</description>
+    </item>
+    
+    <item>
+      <title>VIX CFD 価格調整額</title>
+      <link>/2020/04/29/vix-cfd-adjusted-price/</link>
+      <pubDate>Wed, 29 Apr 2020 17:26:11 +0000</pubDate>
+      
+      <guid>/2020/04/29/vix-cfd-adjusted-price/</guid>
+      <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
+    </item>
+    
+    <item>
       <title>VIXとVIX(CFD)</title>
-      <link>https://honeycrack7.github.io/asset/2020/03/28/vix-vixcfd/</link>
+      <link>/2020/03/28/vix-vixcfd/</link>
       <pubDate>Sat, 28 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://honeycrack7.github.io/asset/2020/03/28/vix-vixcfd/</guid>
+      <guid>/2020/03/28/vix-vixcfd/</guid>
       <description>datatable(tmp1, filter = &amp;#39;top&amp;#39;, style = &amp;#39;bootstrap&amp;#39;, class = &amp;#39;table-bordered table-condensed&amp;#39;, # class = &amp;#39;cell-border stripe&amp;#39;, extensions = &amp;#39;ColReorder&amp;#39;, options = list(dom = &amp;#39;Rlfrtip&amp;#39;, colReorder = list(realtime = TRUE), buttons = I(&amp;#39;colvis&amp;#39;), scrollX = TRUE, scrollCollapse = TRUE ) ) {&#34;x&#34;:{&#34;style&#34;:&#34;bootstrap&#34;,&#34;filter&#34;:&#34;top&#34;,&#34;filterHTML&#34;:&#34;\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n</description>
     </item>
     
